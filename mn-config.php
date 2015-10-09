@@ -6,7 +6,10 @@
  *		MySQL - databse username and password etc.
  *		Database table prefix used when creating tables
  *
+ * This file will be loaded by mn-load.php
+ * 
  * @package  menu
+ * @author  horvo
  */
 
 /** MySQL settings */
