@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Database Installation</title>
+  </head>
 <?php
 /**
  * Install script for menu. 
@@ -20,7 +26,9 @@
 
 		$dbh = null;
 
-		//create a new connection
+		/**
+		 * Creating tables: user, restaurant, menu, menu_item
+		 */
 		$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 		//$dbh->setAttributes(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -71,8 +79,12 @@
 			echo "Created table: menu_item<br>";
 		else
 			echo "Failure to create table: menu_item<br>";
+	
+		/**
+		 * Inserting test data.
+		 */
 	}catch(PDOException $e){
 		echo $e->getMessage();
 	}
-
 ?>
+</html>
