@@ -34,7 +34,7 @@
 
 		$query = $dbh->prepare("CREATE TABLE user (
 			id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			username VARCHAR(18) NOT NULL,
+			username VARCHAR(18) NOT NULL UNIQUE,
 			password VARCHAR(40) NOT NULL,
 			email VARCHAR(60),
 			reg_date TIMESTAMP
@@ -46,7 +46,7 @@
 
 		$query = $dbh->prepare("CREATE TABLE restaurant (
 			id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			username VARCHAR(18) NOT NULL,
+			username VARCHAR(18) NOT NULL UNIQUE,
 			password VARCHAR(40) NOT NULL,
 			email VARCHAR(60) NOT NULL,
 			reg_date TIMESTAMP,

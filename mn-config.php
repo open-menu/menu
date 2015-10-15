@@ -28,7 +28,4 @@ define('DB_HOST', 'localhost');
 /** Database charset */
 define('DB_CHARSET', 'utf8');
 
-/** Table Prefix */
-$table_prefix = 'wp_';
-
 ?>
