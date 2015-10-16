@@ -3,21 +3,23 @@
  * Functions that is used to perform actions on database
  */
 
-// returns True if the username is available
-function username_available($username, $type){
+function type_to_table($type){
 	if($type == "user" || $type == "customer"){
 		$table = "user";
 	}else if($type == "restaurant"){
 		$table = "restaurant";
 	}else{
-		echo "unknown type";
-		return false;
+		mn_error("Ah Uh", "Something went wrong. (wink)");
 	}
 
+	return $table;
+}
+
+// returns true if the username is available. will be called by create_user
+function username_available($dbh, $username, $type){
+	$table = type_to_table($type);
+
 	try{
-		$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,
-					DB_USER, DB_PASSWORD);
-		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "SELECT * FROM $table WHERE username='$username'";
 		$query = $dbh->prepare($sql);
 		$query->execute();
@@ -33,24 +35,50 @@ function username_available($username, $type){
 	}
 }
 
-function create_user($username, $password, $type, $email){
-	try{
-		$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,
-					DB_USER, DB_PASSWORD);
-		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		if($type == "user" || $type == "customer"){
-			$table = "user";
-		}else if($type == "restaurant"){
-			$table = "restaurant";
+function create_user($dbh, $username, $password, $type, $email){
+	if( username_available($dbh, $username, $type)){
+		try{
+			$table = type_to_table($type);
+
+			$sql = "INSERT INTO $table (username, password, email) VALUES('".$username."', '".$password."', '".$email."')";
+
+			$dbh->exec($sql);
+			return true;
+		}catch(PDOException $e){
+			header("Location: mn-errors.php?type=db&message=$e");
 		}
-
-		$sql = "INSERT INTO $table (username, password, email) VALUES('".$username."', '".$password."', '".$email."')";
-
-		$dbh->exec($sql);
-	}catch(PDOException $e){
-		echo "Database failure";
-		echo $sql;
+	}else{
+		return false;
 	}
+
+	
+}
+
+function signin_check($dbh, $username, $password, $type){
+	$table = type_to_table($type);
+
+	try{
+		$sql = "SELECT * FROM $table WHERE username=:username";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(":username", $username);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+
+		if(count($result)> 0 && $password == $result["password"]){
+			$_SESSION["username"] = $result["username"];
+			return true;
+		}else{
+			return false;
+		}
+	}catch(PDOException $e){
+		echo $e;
+		return false;
+	}
+}
+
+function mn_error($type, $message){
+	header("Location: mn-errors.php?type=$type&message=$message");
+	//<script>location.href='errorpage.html'</script>
+	//consider using this javascript code. header has its limitations.
 }
 ?>
