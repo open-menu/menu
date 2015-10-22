@@ -40,8 +40,8 @@ function create_user($dbh, $username, $password, $type, $email){
 		try{
 			$table = type_to_table($type);
 
-			$sql = "INSERT INTO $table (username, password, email) VALUES('".$username."', '".$password."', '".$email."')";
-
+			$encrypted_pass = password_hash($password ,PASSWORD_BCRYPT);
+			$sql = "INSERT INTO $table (username, password, email) VALUES('$username', '$encrypted_pass', '$email')";
 			$dbh->exec($sql);
 			return true;
 		}catch(PDOException $e){
@@ -64,7 +64,7 @@ function signin_check($dbh, $username, $password, $type){
 		$query->execute();
 		$result = $query->fetch(PDO::FETCH_ASSOC);
 
-		if(count($result)> 0 && $password == $result["password"]){
+		if(count($result)> 0 && password_verify($password, $result["password"])){
 			$_SESSION["username"] = $result["username"];
 			return true;
 		}else{
