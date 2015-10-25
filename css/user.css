@@ -1,0 +1,94 @@
+/*--- 整体布局  ---*/
+.content-mu{
+	display: block;
+	background-image: url('../blog_post.jpg'); 
+	background-size: 100%;
+	min-height: 100%;
+	width: 100%;
+	opacity: 1;
+	overflow: hidden;
+}
+
+.sq-box-mu{
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.50);
+	float: left;
+	margin:20px 20px 15px 40px;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.rectangle-ve-box{
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.50);
+	float: left;
+	margin:20px 20px 15px 40px;
+	width: 200px;
+	height: 400px;
+	overflow: hidden;
+}
+
+.rectanglevele-box{
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.50);
+	float: left;
+	margin:20px 20px 15px 40px;
+	width: 200px;
+	height: 825px;
+	overflow: hidden;
+}
+
+.rectanleho-box{
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.50);
+	float: left;
+	margin:40px 20px 15px 40px;
+	width: 330px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.user-info{
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.50);
+	float: left;
+	margin:40px 20px 15px 40px;
+	width: 720px;
+	height: 380px;
+	
+}
+
+.rectangleve2-box{
+	display:block;
+	background-color: rgba(255, 255, 255, 0.50);
+	float: left;
+	margin:70px 20px 15px 40px;
+	width: 720px;
+	height: 750px;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
