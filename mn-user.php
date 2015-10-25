@@ -1,3 +1,4 @@
+
 <html lang="en">
 
 <head>
@@ -13,7 +14,7 @@
   <link href="css/bootstrap.css" rel="stylesheet" />
   <link href="css/gsdk.css" rel="stylesheet"/>
   <link href="css/demo.css" rel="stylesheet" />
-  <link href="css/user2.css" rel="stylesheet" />
+  <link href="css/user.css" rel="stylesheet" />
 
   <!--     Fonts and icons     -->
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -79,7 +80,7 @@
     <div class="sq-box-mu">    </div>
     <div class="sq-box-mu">    </div>
     <div class="sq-box-mu">    </div>
-    <div class="rectanglevele-box"></div>
+    <div class="rectangle-le-box"></div>
     <div class="rectangleve2-box"></div>
     <div class="rectangle-ve-box"></div>
     <div class="rectangle-ve-box"></div>
@@ -88,6 +89,7 @@
     <div class="sq-box-mu">    </div>
     <div class="sq-box-mu">    </div>
     <div class="sq-box-mu">    </div>
+    .
 </div>
 
 
@@ -114,3 +116,8 @@
   </div>
 </body>
 </html>
+=======
+<?php
+	echo "I'm a user";
+?>
+>>>>>>> master
