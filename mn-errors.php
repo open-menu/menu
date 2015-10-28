@@ -3,5 +3,7 @@
  * Error handler page. 
  */
 
-echo "Something went wrong. Error message".$e;
+if(isset($_GET["type"]) && isset($_GET["message"])){
+	//code
+}
 ?>
