@@ -1,23 +1,92 @@
+.wrapper {
+	-webkit-transform: translate3d(0px, 0, 0);
+	-moz-transform: translate3d(0px, 0, 0);
+	-o-transform: translate3d(0px, 0, 0);
+	-ms-transform: translate3d(0px, 0, 0);
+	transform: translate3d(0px, 0, 0);
+	-webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	-moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	-o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	-ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	left: 0;
+	background-color: white;
+}
+#user-container{
+	width: 1300px;
+	margin:0px auto;
+	position:absolute;
+}
+
+
 /*--- 整体布局  ---*/
 .content-mu{
 	display: block;
-	background-image: url('../blog_post.jpg'); 
-	background-size: 100%;
+	position: relative;
+	background-image: url(../blog_post.jpg);
+	background-color: rgba(255, 255, 255, 0.5);
 	min-height: 100%;
-	width: 100%;
+	width: auto;
 	opacity: 1;
-	overflow: hidden;
+
 }
 
-.sq-box-mu{
-	display: inline-block;
+.foryou-mu{
+	display:block;
+	background-color: rgba(255, 255, 255, 0.50);
+	float: left;
+	margin:20px 0px 15px 25px;
+	width: 300px;
+	height: 150px;
+	
+}
+.sq-box{
+	display: block;
+	float: right;
+	background-color: green;
+	width: 150px;
+	height: 150px;
+}
+.sq-name-box {
+	display: block;
+	background-color: yellow;
+	width: 100%;
+	height: 30px;
+	font-size: 20px;
+	font-weight: 900;
+	text-align: center;
+}
+
+.history-box{
+	display:block;
 	background-color: rgba(255, 255, 255, 0.50);
 	float: left;
 	margin:20px 20px 15px 40px;
 	width: 200px;
-	height: 200px;
-	overflow: hidden;
+	height: 825px;
+
 }
+
+.main-box{
+	display:block;
+	background-color: rgba(255, 255, 255, 0.5);
+	float: left;
+	margin:70px 20px 15px 40px;
+	width: 720px;
+	height: 750px;
+
+}
+
+.user-info{
+	display: block;
+	position: relative;
+	float: left;
+	margin:0px 0px 0px 15px;
+	width: 720px;
+	height: 380px;
+	
+}
+
 
 .rectangle-ve-box{
 	display: inline-block;
@@ -26,68 +95,181 @@
 	margin:20px 20px 15px 40px;
 	width: 200px;
 	height: 400px;
-	overflow: hidden;
+
 }
 
-.rectangle-le-box{
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.50);
+.user-tooltip {
+	border-bottom: 1px dotted #000000;
+	color: red; outline: none;
 	float: left;
-	margin:20px 20px 15px 40px;
-	width: 200px;
-	height: 825px;
-	overflow: hidden;
+	cursor: ; text-decoration: none;  /*   cursor图标  */
+	position: relative;
+	z-index: 20;
+}
+.user-tooltip:hover {
+	z-index: 25;
+	background: none;
+	background-color: red;
+}
+.user-tooltip span {
+	display: none;
 }
 
-.rectanleho-box{
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.50);
+.user-tooltip:hover span {
+	display: block;
+	position: absolute;
+	left: 5em;
+	top: 1em;
+	width: 15em;
+	height: 25em;
+	border:1px solid blue;
+	background-color: rgba(255, 255, 255, 0.88);
+	padding: 3px;
 	float: left;
-	margin:40px 20px 15px 40px;
-	width: 330px;
-	height: 200px;
-	overflow: hidden;
 }
 
-.user-info{
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.50);
+.food-catagory {
+	color: green; outline: none;
+	cursor: ; text-decoration: none;  /*   cursor图标  */
+	position: relative;
+	margin-left: 85px;
+	z-index: 20;
+}
+.food-catagory:hover {
+	z-index: 25;
+	background: none;
+}
+.food-catagory span {
+	display: none;
+}
+
+.food-catagory:hover span {
+	display: block;
+	position: absolute;
+	margin-left: -40px;
+	margin-top: -150px;
+	top: 0;
+	width: 40em;
+	height: 23em;
+	padding: 3px;
 	float: left;
-	margin:40px 20px 15px 40px;
-	width: 720px;
-	height: 380px;
-	
 }
 
-.rectangleve2-box{
-	display:block;
-	background-color: rgba(255, 255, 255, 0.50);
-	float: left;
-	margin:70px 20px 15px 40px;
-	width: 720px;
-	height: 750px;
-	overflow: hidden;
+.btn-food-catagory0 {
+	position: absolute;
+	width: 120px;
+	height: 40px;
+	margin-left: -5px;
+	margin-top: 10px;
+	border:2px solid;
+	border-radius: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	-moz-border-radius:20px / 10px;
+	-webkit-border-radius:20px/10px;
+	animation: btn-showing1 1s;
+}
+.btn-food-catagory1 {
+	position: relative;
+	width: 120px;
+	height: 40px;
+	margin-left: 425px;
+	margin-top: 10px;
+	border:2px solid;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	-moz-border-radius:20px / 10px;
+	-webkit-border-radius:20px/10px;
+	animation: btn-showing1 6s;
+}
+.btn-food-catagory2 {
+	position: relative;
+	width: 120px;
+	height: 40px;
+	margin-left: -40px;
+	margin-top: 80px;
+	border:2px solid;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	-moz-border-radius:20px / 10px;
+	-webkit-border-radius:20px/10px;
+	animation: btn-showing1 2s;
+}
+.btn-food-catagory3 {
+	position: relative;
+	width: 120px;
+	height: 40px;
+	margin-left: 465px;
+	margin-top: -40px;
+	border:2px solid;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	-moz-border-radius:20px / 10px;
+	-webkit-border-radius:20px/10px;
+	animation: btn-showing1 5s;
+
+}
+.btn-food-catagory4 {
+	position: relative;
+	width: 120px;
+	height: 40px;
+	margin-left: 0px;
+	margin-top: 80px;
+	border:2px solid;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	-moz-border-radius:20px / 10px;
+	-webkit-border-radius:20px/10px;
+	animation: btn-showing1 3s;
+}
+.btn-food-catagory5 {
+	position: relative;
+	width: 120px;
+	height: 40px;
+	margin-left: 425px;
+	margin-top: -40px;
+	border:2px solid;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	-moz-border-radius:20px / 10px;
+	-webkit-border-radius:20px/10px;
+	animation: btn-showing1 4s;
 }
 
+/*---------------*/
+.container {
+	margin: 0 auto;
+	height: 500px;
+	width: 500px;
+}
+.path1 {
+	animation: rotater 10s;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 300px;
+	height: 300px;
+	width: 300px;
+}
+@keyframes rotater {
+	from {
+		width: 0;
+		height: 0;
+		opacity: 0;
+		transform: rotate(0deg);
+	}
+	80% {
+		opacity: 1;
+		transform: rotate(40deg);
+	}
+}
 
+@keyframes btn-showing1 {
+	from {
+		opacity: 0;
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	80% {
+		opacity: 1;
+	}
+}
 
 
 
