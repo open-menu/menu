@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains MySQL database abstraction class
+ * This file contains MySQL database connection handle
  *
  * This file does NOT contain database authorization configurations. 
  * Configuration for MySQL databse is in mn-config.php
@@ -9,52 +9,13 @@
  * @author  horvo
  */
 
-class mndb{
-	/** Query counter */
-	public $num_queries = 0;
+require_once("mn-config.php");
 
-	/** Last query made */
-	var $last_query;
-
-	/** Result fo last query made */
-	var $last_result;
-
-	/** MySQL result */
-	protected $result;
-
-	/** Saved query history */
-	var $queries;
-
-	/** Database username */
-	protected $dbuser;
-
-	/** Database password */
-	protected $dbpassword;
-
-	/** Database host */
-	protected $dbhost;
-
-	/** Database handle */
-	protected $dbh;
-
-	/**
-	 * Constructor of the class.
-	 * 
-	 * @param string $dbuser     MySQL database user
-	 * @param string $dbpassword MySQL database password
-	 * @param string $dbname     MySQL database name
-	 * @param string $dbhost     MySQL database host 
-	 */
-	
-	public function __construct( $dbuser, $dbpassword, $dbname, $dbhost){
-		register_shutdown_function( array($this, '__destruct') );
-
-		$this->dbuser = $dbuser;
-		$this->dbpassword = $dbpassword;
-		$this->dbname = $dbname;
-		$this->dbhost = $dbhost;
-
-		$this->db_connect();
-	}
+try{
+	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,
+				DB_USER, DB_PASSWORD);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}catch(PDOException $e){
+	header("Location: mn-errors.php?type=db&message=$e");
 }
 ?>
