@@ -39,7 +39,7 @@
 
 <div class="parallax">
         <div class="parallax-image">
-            <img src= "/error_page/1.jpg">
+            <img src= "1.jpg">
         </div>
         	<div>
         		<!-- Navbar will come here -->
