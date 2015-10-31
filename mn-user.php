@@ -27,7 +27,7 @@
 
 	<div class="parallax">
 		<div class="parallax-image">
-			<img src="blosg_post.jpg">
+			
 		</div>
 		<div>
 			<!-- Navbar will come here -->
@@ -88,64 +88,83 @@
 		
 		<div class="container">
 			<!-- First row  推销-->
-				<div class="row" width="100%" max-height="33.33%">
-							<div class="foryou-mu"> 
+			<div class="row" width="100%" max-height="33.33%">
+				<div class="foryou-mu"> 
 
-								<a href="#" class="user-tooltip" >
-									<img src="blog_post.jpg" width="155"; height="173">
-									<span>
-										<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
-										王尼玛餐馆
-										<p>地址</p>
-										<p>电话</p>
-										<p>主页</p>
-									</span>
-								</a>
-								<div class="sq-box">
-									<div class="sq-name-box">
-										石锅海鲜饭
-									</div>
-									
-								
-								
-								
-								</div>
-							</div>
-							<div class="foryou-mu">  
-								<a href="#" class="user-tooltip" >
-									<img src="../menu/image/1.jpg" width="165"; height="173">
-									<span>
-										<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
-										王尼玛餐馆
-										<p>地址</p>
-										<p>电话</p>
-										<p>主页</p>
-									</span>
-								</a>
-							</div>
-							<div class="foryou-mu">  
-								<a href="#" class="user-tooltip" >
-									<img src="../menu/image/4.jpg" width="165"; height="173">
-									<span>
-										<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
-										王尼玛餐馆
-										<p>地址</p>
-										<p>电话</p>
-										<p>主页</p>
-									</span>
-								</a>
-							</div>
-							<div class="foryou-mu">  
-								<a href="#" class="user-tooltip">
-									<img src="../menu/image/7.jpg" width="165"; height="173">
-									<span>
-										<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
-										王尼玛餐馆
-										<p>地址</p>
-										<p>电话</p>
-										<p>主页</p>
-									</span>
-								</a>
+					<a href="#" class="user-tooltip" >
+						<img src="blog_post.jpg" width="155"; height="173">
+						<span>
+							<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+							王尼玛餐馆
+							<p>地址</p>
+							<p>电话</p>
+							<p>主页</p>
+						</span>
+					</a>
+					<div class="sq-box">
+						<div class="sq-name-box">
+							石锅海鲜饭
+						</div>
+						<p></p>Priace: <i class="fa fa-usd"></i><i class="fa fa-usd"></i>
+						<p></p><i class="fa fa-star" align="center"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+					</div>
+				</div>
+				<div class="foryou-mu">  
+					<a href="#" class="user-tooltip" >
+						<img src="../menu/image/1.jpg" width="155"; height="173">
+						<span>
+							<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+							王尼玛餐馆
+							<p>地址</p>
+							<p>电话</p>
+							<p>主页</p>
+						</span>
+					</a>
+					<div class="sq-box">
+						<div class="sq-name-box">
+							巨蟹机器人
+						</div>
+						<p></p>Priace: <i class="fa fa-usd"></i><i class="fa fa-usd"></i>
+						<p></p><i class="fa fa-star" align="center"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+					</div>
+				</div>
+				<div class="foryou-mu">  
+					<a href="#" class="user-tooltip" >
+						<img src="../menu/image/4.jpg" width="155"; height="173">
+						<span>
+							<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+							鱿鱼杂锦烧
+							<p>地址</p>
+							<p>电话</p>
+							<p>主页</p>
+						</span>
+					</a>
+					<div class="sq-box">
+						<div class="sq-name-box">
+							鱿鱼杂锦烧
+						</div>
+						<p></p>Priace: <i class="fa fa-usd"></i><i class="fa fa-usd"></i>
+						<p></p><i class="fa fa-star" align="center"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+					</div>
+				</div>
+				<div class="foryou-mu">  
+					<a href="#" class="user-tooltip">
+						<img src="../menu/image/7.jpg" width="155"; height="173">
+						<span>
+							<img src="../menu/image/2.jpg" style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+							王尼玛餐馆
+							<p>地址</p>
+							<p>电话</p>
+							<p>主页</p>
+						</span>
+					</a>
+					<div class="sq-box">
+						<div class="sq-name-box">
+							特色香蕉抹茶窜
+						</div>
+						<p></p>Priace: <i class="fa fa-usd"></i><i class="fa fa-usd"></i>
+						<p></p><i class="fa fa-star" align="center"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+					</div>
 
 				</div>
 
@@ -155,39 +174,95 @@
 					<!--  主菜单  -->
 					<div class="main-box">
 						<div class="user-info">
-							<div class="user-container">
-								<a href="#" class="food-catagory">
-									<img src="../menu/image/2.jpg" class="path1">
-									<span>
-										<div class="btn-food-catagory0" align="center"><p></p><strong>草泥马中餐</strong></div>
-										<div class="btn-food-catagory1" align="center"><p></p><strong>草泥马美国</strong></div>
-										<div class="btn-food-catagory2" align="center"><p></p><strong>草泥马韩国</strong></div>
-										<div class="btn-food-catagory3" align="center"><p></p><strong>草泥马日本</strong></div>
-										<div class="btn-food-catagory4" align="center"><p></p><strong>草泥马越南</strong></div>
-										<div class="btn-food-catagory5" align="center"><p></p><strong>更多</strong></div>
-									</span>
-								</a>
-								<div class="btn-ice1" align="center">
-									<p></p><strong>棒棒草泥马</strong>
-								</div>
-								<div class="btn-ice2" align="center">
-									<p></p><strong>账号管理</strong>
-								</div>
-								<div class="btn-ice3" align="center">
-									<p></p><strong>账号管理</strong>
-								</div>
-								<div class="btn-ice4">
+							<a href="#" class="food-catagory">
+								<img src="../menu/image/2.jpg" class="path1">
+								<span>
+									<div class="btn-food-catagory0" align="center"><p></p><strong>草泥马中餐</strong></div>
+									<div class="btn-food-catagory1" align="center"><p></p><strong>草泥马美国</strong></div>
+									<div class="btn-food-catagory2" align="center"><p></p><strong>草泥马韩国</strong></div>
+									<div class="btn-food-catagory3" align="center"><p></p><strong>草泥马日本</strong></div>
+									<div class="btn-food-catagory4" align="center"><p></p><strong>草泥马越南</strong></div>
+									<div class="btn-food-catagory5" align="center"><p></p><strong>更多</strong></div>
+								</span>
+							</a>
+							<div class="btn-ice1" align="center">
+								<p></p><strong>棒棒草泥马</strong>
+							</div>
+							<div class="btn-ice2" align="center">
+								<p></p><i class="fa fa-cog fa=spin"></i><strong>账号管理</strong>
+							</div>
+							<div class="btn-ice3" align="center">
+								<p></p><strong>账号管理</strong>
+							</div>
+							<div class="btn-ice4">
 
-								</div>
 							</div>
 
 						</div>
 					</div>
 					<!--   中间盒子   -->
 					<div class="main-box">
+						<div class="housetop-box">	
+							<div id="house-box"></div>
+							<div id="house-box2"></div>
+							<div id="house-box3"></div>
+							<div class="newbee" align="center">
+								<p></p><P></P><strong>NewBee</strong><p>Logo</p>
+							</div>
+						</div>
+						<div class="housetop-box2">
 
+							<div class="house-favo-box">
+								<a href="#" class="fav-list">
+
+									<div class="house-favo" align="center">
+										<p></p><strong>个人收藏</strong>
+										<div class="winleft">
+											<div class="win-line1"></div>
+											<div class="win-line2"></div>
+										</div>
+									</div>
+									<span>
+										<div class="fav-detal-box">
+											<ul>
+												<li>asdasd</li>
+												<li>草泥马啊</li>
+											</ul>
+										</div>
+									</span>
+								</a>
+							</div>
+
+
+							<div class="house-wish-box">
+								<a href="#" class="wish-list">
+									<div class="house-wish" align="center">
+										<p></p><strong>愿望盒</strong>
+										<div class="winright">
+											<div class="win-line1"></div>
+											<div class="win-line2"></div>
+										</div>										
+									</div>
+									<span>
+										<div class="wish-detal-box">
+											<div class="btn-ice1">想吃什么呢</div>
+											<div class="btn-ice1"></div>
+											<div class="btn-ice1"></div>
+											<div class="btn-ice1"></div>
+											<div class="btn-ice1"></div>
+										</div>
+									</span>
+								</a>
+								
+							</div>
+							<div id="house-box4"></div>
+							<div id="house-box5"></div>
+							<div id="house-box6"></div>
+							<div class="mouth"></div>
+
+						</div>	<!--housebox2 end -->
 					</div>
-					<div class="main-box">
+					<div class="history-box">
 
 					</div>
 
