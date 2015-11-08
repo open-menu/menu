@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>OpenMenu</title>
+	<title>GridMenu</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -24,10 +24,9 @@
 </head>
 <body>
 
-
 <div class="parallax">
         <div class="parallax-image">
-            <img src="blog_post.jpg">
+            <img src="blog_post.jpg" width="530" height="530">
         </div>
         	<div>
         		<!-- Navbar will come here -->
@@ -83,7 +82,7 @@
                  <!-- end navbar -->
              </div>
         <div class="motto">
-            <div>Title</div>
+            <div>Grid Menu</div>
         </div>
         <h3 class="motivation">A Menu for Every Restaurant.</h3>
     </div>
@@ -372,6 +371,7 @@
     </div>
   </div>
 </div>
+ 
 
 </body>
 
