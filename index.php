@@ -26,7 +26,7 @@
 
 <div class="parallax">
         <div class="parallax-image">
-            <img src="blog_post.jpg" width="530" height="530">
+            <img src="blog_post.jpg" width="530" height="650">
         </div>
         	<div>
         		<!-- Navbar will come here -->
@@ -46,7 +46,6 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navigation-default2">
                       <ul class="nav navbar-nav">
-                        <!-- <li class="active"><a href="#">Link</a></li> -->
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 TeamNewbee
@@ -372,6 +371,16 @@
   </div>
 </div>
  
+ <div class="space-50"></div>
+    <div class="section section-gray" id="footers">     
+        <div class="container">
+    </div>
+        <div class="credit" style="text-align:center" >
+                &copy Referred 2015 Creative Tim
+                </div>
+            </div>
+       
+
 
 </body>
 
