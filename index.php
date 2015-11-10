@@ -119,8 +119,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="username">Username</label>  
           <div class="col-md-4">
-          <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required="">
-          <span class="help-block">Name of User</span>  
+          <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required=""> 
           </div>
         </div>
 
@@ -129,17 +128,15 @@
           <label class="col-md-4 control-label" for="password">Password </label>
           <div class="col-md-4">
             <input id="password" name="password" type="password" placeholder="Password " class="form-control input-md" required="">
-            <span class="help-block">Admin Password </span>
           </div>
         </div>
 
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="rpassword">confirm</label>
+          <label class="col-md-4 control-label" for="rpassword">Confirm Password</label>
           <div class="col-md-4">
             <input id="rpassword" name="rpassword" type="password" placeholder="Password" class="form-control input-md" required="">
-            <span class="help-block">Retype password</span>
-          </div>
+         </div>
         </div>
 
          <!-- Text input-->
@@ -147,7 +144,6 @@
           <label class="col-md-4 control-label" for="email">Email</label>  
           <div class="col-md-4">
           <input id="email" name="email" type="text" placeholder="Email address" class="form-control input-md" required="">
-          <span class="help-block">Email will be used for notication messages</span>  
           </div>
         </div>
         
@@ -156,7 +152,6 @@
           <label class="col-md-4 control-label" for="restaurant">Restaurant Name</label>  
           <div class="col-md-4">
           <input id="restaurant" name="restaurant" type="text" placeholder="restaurant" class="form-control input-md" required="">
-          <span class="help-block">Name of Restaurant</span>  
           </div>
         </div>
 
@@ -165,7 +160,6 @@
           <label class="col-md-4 control-label" for="phone">Phone</label>  
           <div class="col-md-4">
           <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control input-md" required="">
-          <span class="help-block">Business Phone</span>  
           </div>
         </div>
         

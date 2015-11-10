@@ -269,7 +269,7 @@
                                   </div>
                               </div>
                             </div>
-                            <div class="tab-pane" id="captain">
+                            <div class="tab-pane" id="menu">
                                 <h4 class="info-text">Do you include a menu? </h4>
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
@@ -347,10 +347,9 @@
 </body>
 
 <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 	<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
     
 	<!--  Plugins -->
 	<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
@@ -363,10 +362,11 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/chartist.min.js"></script>
     <script src="js/jquery.tagsinput.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    
 
 	<script src="js/get-shit-done.js"></script>
-    <script src="js/jquery.validate.min.js"></script>-->
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/wizard.js"></script>
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </html>

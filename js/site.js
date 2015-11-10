@@ -38,3 +38,28 @@ var textfield = $("input[name=user]");
             });
 });
 
+// $(document).ready(function(){
+//     $('.wizard-card-register').bootstrapWizard({
+        
+//         onInit : function(tab, navigation, index){
+            
+//            //check number of tabs and fill the entire row
+//            var $total = navigation.find('li').length;
+//            $width = 100/$total;
+           
+//            $display_width = $(document).width();
+           
+//            if($display_width < 600 && $total > 3){
+//                $width = 50;
+//            }
+           
+//            navigation.find('li').css('width',$width + '%');
+           
+//         },
+//         onTabClick : function(tab, navigation, index){
+//             // Disable the posibility to click on tabs
+//             //return validateTab(index);
+//             return true;
+//         }
+//     })
+// });
