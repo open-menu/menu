@@ -331,3 +331,7 @@ html,body{
     text-shadow: 0 0 10px rgba(0,0,0,1) !important;
     width: 600px;
 }
+
+.parallax .parallax-image img{
+    opacity: 0.78 !important;
+}
