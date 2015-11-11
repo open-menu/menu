@@ -78,7 +78,7 @@
 					<div class="row">
 						<div class = " col-md-3 col-md-3">
 							<a href ="#" class = "thumbnail" >
-								<img src ="blog_post.jpg" alt = "..."></a>
+								<img src ="../menu/image/unknow-img.png" alt = "..."></a>
 								<div class = "caption" style="margin-top:-1em">             
 									<h5> Restaurant Name1</h5>
 									<div class = "caption" style="margin-top:-1em">
@@ -166,7 +166,9 @@
 								<div id="house-box"></div>
 								<div id="house-box2"></div>
 								<div id="house-box3"></div>
-								<div class="newbee" align="center"><p></p><P></P><strong>NewBee</strong><p>Logo</p></div>
+								<div class="newbee">
+									<img src="../menu/image/newbee.png" style="height:5.8em;width:14.3em;border-radius:20px">
+								</div>
 							</div>
 							<div class="housetop-box2">
 								<div class="house-favo-box">
