@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>OpenMenu</title>
+	<title>GridMenu</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -24,10 +24,9 @@
 </head>
 <body>
 
-
 <div class="parallax">
         <div class="parallax-image">
-            <img src="blog_post.jpg">
+            <img src="blog_post.jpg" width="530" height="650">
         </div>
         	<div>
         		<!-- Navbar will come here -->
@@ -47,7 +46,6 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navigation-default2">
                       <ul class="nav navbar-nav">
-                        <!-- <li class="active"><a href="#">Link</a></li> -->
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 TeamNewbee
@@ -73,8 +71,8 @@
                          </div>
                       </form>
                       <ul class="nav navbar-nav navbar-right">
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspRegister</button></li>
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal"><i class="fa fa-sign-in"></i>&nbsp&nbspSign in</button></li>
+                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal" onclick="window.location.href='mn-signup.php'"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspRegister</button></li>
+                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal" onclick="window.location.href='mn-signin.php'"><i class="fa fa-sign-in"></i>&nbsp&nbspSign in</button></li>
                        </ul>
 
                     </div><!-- /.navbar-collapse -->
@@ -83,7 +81,7 @@
                  <!-- end navbar -->
              </div>
         <div class="motto">
-            <div>Title</div>
+            <div>Grid Menu</div>
         </div>
         <h3 class="motivation">A Menu for Every Restaurant.</h3>
     </div>
@@ -121,8 +119,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="username">Username</label>  
           <div class="col-md-4">
-          <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required="">
-          <span class="help-block">Name of User</span>  
+          <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required=""> 
           </div>
         </div>
 
@@ -131,17 +128,15 @@
           <label class="col-md-4 control-label" for="password">Password </label>
           <div class="col-md-4">
             <input id="password" name="password" type="password" placeholder="Password " class="form-control input-md" required="">
-            <span class="help-block">Admin Password </span>
           </div>
         </div>
 
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="rpassword">confirm</label>
+          <label class="col-md-4 control-label" for="rpassword">Confirm Password</label>
           <div class="col-md-4">
             <input id="rpassword" name="rpassword" type="password" placeholder="Password" class="form-control input-md" required="">
-            <span class="help-block">Retype password</span>
-          </div>
+         </div>
         </div>
 
          <!-- Text input-->
@@ -149,7 +144,6 @@
           <label class="col-md-4 control-label" for="email">Email</label>  
           <div class="col-md-4">
           <input id="email" name="email" type="text" placeholder="Email address" class="form-control input-md" required="">
-          <span class="help-block">Email will be used for notication messages</span>  
           </div>
         </div>
         
@@ -158,7 +152,6 @@
           <label class="col-md-4 control-label" for="restaurant">Restaurant Name</label>  
           <div class="col-md-4">
           <input id="restaurant" name="restaurant" type="text" placeholder="restaurant" class="form-control input-md" required="">
-          <span class="help-block">Name of Restaurant</span>  
           </div>
         </div>
 
@@ -167,7 +160,6 @@
           <label class="col-md-4 control-label" for="phone">Phone</label>  
           <div class="col-md-4">
           <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control input-md" required="">
-          <span class="help-block">Business Phone</span>  
           </div>
         </div>
         
@@ -359,11 +351,10 @@
             <div id="output"></div>
             <div class="avatar"></div>
             <div class="form-box">
-                <form action="" method="">
+                <form action="mn-signin.php" method="post">
                     <input name="user" type="text" placeholder="username">
-                    <input type="password" placeholder="password">
+                    <input name="password" type="password" placeholder="password">
                     <button class="btn btn-info btn-block login" type="submit">Login</button>
-                    <!--<button class="btn btn-info btn-block login" type="submit">Sign Up</button>-->
                 </form>
             </div>
        </div>
@@ -372,6 +363,17 @@
     </div>
   </div>
 </div>
+ 
+ <div class="space-50"></div>
+    <div class="section section-gray" id="footers">     
+        <div class="container">
+    </div>
+        <div class="credit" style="text-align:center" >
+                &copy Referred 2015 Creative Tim
+                </div>
+            </div>
+       
+
 
 </body>
 
