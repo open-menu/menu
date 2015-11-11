@@ -20,24 +20,7 @@
 <!-- Form Name -->
 <legend>Sign Up</legend>
 
-<!-- Multiple Radios -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="type">User Type</label>
-  <div class="col-md-4">
-  <div class="radio">
-    <label for="type-0">
-      <input type="radio" name="type" id="type-0" value="user" checked="checked">
-      User/Customer
-    </label>
-	</div>
-  <div class="radio">
-    <label for="type-1">
-      <input type="radio" name="type" id="type-1" value="restaurant">
-      Restaurant
-    </label>
-	</div>
-  </div>
-</div>
+
 
 <!-- Text input-->
 <div class="form-group">
@@ -54,6 +37,25 @@
   <div class="col-md-4">
     <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
     <span class="help-block">help</span>
+  </div>
+</div>
+
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="type">User Type</label>
+  <div class="col-md-4">
+  <div class="radio">
+    <label for="type-0">
+      <input type="radio" name="type" id="type-0" value="user" checked="checked">
+      User/Customer
+    </label>
+  </div>
+  <div class="radio">
+    <label for="type-1">
+      <input type="radio" name="type" id="type-1" value="restaurant">
+      Restaurant
+    </label>
+  </div>
   </div>
 </div>
 
