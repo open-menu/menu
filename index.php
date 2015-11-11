@@ -71,8 +71,8 @@
                          </div>
                       </form>
                       <ul class="nav navbar-nav navbar-right">
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspRegister</button></li>
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal"><i class="fa fa-sign-in"></i>&nbsp&nbspSign in</button></li>
+                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal" onclick="window.location.href='mn-signup.php'"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspRegister</button></li>
+                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal" onclick="window.location.href='mn-signin.php'"><i class="fa fa-sign-in"></i>&nbsp&nbspSign in</button></li>
                        </ul>
 
                     </div><!-- /.navbar-collapse -->
@@ -351,11 +351,10 @@
             <div id="output"></div>
             <div class="avatar"></div>
             <div class="form-box">
-                <form action="" method="">
+                <form action="mn-signin.php" method="post">
                     <input name="user" type="text" placeholder="username">
-                    <input type="password" placeholder="password">
+                    <input name="password" type="password" placeholder="password">
                     <button class="btn btn-info btn-block login" type="submit">Login</button>
-                    <!--<button class="btn btn-info btn-block login" type="submit">Sign Up</button>-->
                 </form>
             </div>
        </div>

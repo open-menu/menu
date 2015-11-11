@@ -1,3 +1,15 @@
+<?php
+	require_once("mn-config.php");
+	require_once("mn-dbactions.php");
+	require_once("mn-db.php");
+	
+	session_start();
+
+	if(!isset($_SESSION["username"])){
+		header("location:mn-signin.php");
+	}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -47,7 +59,7 @@
 							<ul class="nav navbar-nav">
 								<!-- Restaurant Data Button -->
 								<li>
-									<button class="btn btn-round btn-fill btn-info" data-toggle="" data-target="">
+									<button class="btn btn-round btn-fill btn-info" onclick="window.location.href='mn-restaurant-list.php'">
 										<i class="fa fa-book"></i>Restaurants
 									</button>
 								</li>
@@ -59,7 +71,7 @@
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<li>
-									<button class="btn btn-round btn-fill btn-info" data-toggle="" data-target="">
+									<button class="btn btn-round btn-fill btn-info" onclick="window.location.href='mn-signout.php'">
 										<i class="fa fa-sign-in"></i>
 										Sign out
 									</button>
@@ -146,7 +158,7 @@
 									</span>
 								</a>
 
-								<div class="btn-ice1" align="center"><p></p><strong>Names</strong></div>
+								<div class="btn-ice1" align="center"><p></p><strong><?php echo $_SESSION['username'];?></strong></div>
 								<div class="btn-ice2" align="center"><p></p><i class="fa fa-cog fa=spin"></i><strong>Account</strong></div>
 								<div class="btn-ice3" align="center"><p></p><i class="fa fa-shopping-cart"></i><strong>Cart</strong></div>
 								<div class="btn-ice4">
