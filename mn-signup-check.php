@@ -4,6 +4,7 @@
  */
 require_once("mn-config.php");
 require_once("mn-dbactions.php");
+require_once("mn-db.php");
 
 //This may not be the final version. 
 //Just writing some working code to pass round 1 submissin.
@@ -18,8 +19,8 @@ if( isset($_POST["username"]) && isset($_POST["password"])
 	$type = $_POST["type"];
 
 	//Check if username exists
-	if( username_available($username, $type) ){
-		create_user($username, $password, $type, $email);
+	if( username_available($dbh, $username, $type) ){
+		create_user($dbh, $username, $password, $type, $email);
 		header("Location: mn-$type.php");
 	}else{
 		header("Location: mn-signup.php?check=false");
