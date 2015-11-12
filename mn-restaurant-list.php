@@ -23,15 +23,8 @@
     <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
     <style type="text/css">
-    
-	h1 {font-family:Georgia; font-size:3.75em; color: black;
-	text-align:center;
-	position: relative; top: 45%;
-	}
-	h2 {font-family:Georgia; font-size:2em; color: black;
-	position: relative; top: 37%; margin-left: 60%}
-	h3{font-family:Georgia; font-size:1.5em; 
-	position: relative; top: 50%; margin-left: 50%}
+    h2{font-size: 16px;}
+    h3{font-size: 13px;}
     </style>
 </head>
 <body>
@@ -39,7 +32,7 @@
 
 <div class="parallax">
         <div class="parallax-image">
-            <img src= "1.jpg">
+            <background-color: white>
         </div>
         	<div>
         		<!-- Navbar will come here -->
@@ -93,23 +86,70 @@
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
                  </nav>
-               </div>
+                 <!-- end navbar -->
 
-</style>
-</head>
-<body>
-<?php
-if(isset($_GET["type"]) && isset($_GET["message"])){
-	$type = $_GET["type"];
-	$message = $_GET["message"];
-}
-else{
-	$type = "Unknow error";
-	$message = "Comeback Later";
-}
-?>
-	<h1> <?php echo "$type"."<br>"; ?></h1>
-	<h2> <?php echo "$message"; ?></h2>
-	<h3><a href="index.php">Home Page</a></h3>
-</body>
+                 <!-- sorting food -->
+               <nav class="navbar navbar-default navbar-form" >
+                  <div class="container">
+                 		<li> <button class = "btn btn-default navbar-btn btn-sm" type = "button" >XXX Food </button>
+                         <button class = "btn btn-default navbar-btn btn-sm" type = "button" >YYY Food </button>
+                         <button class = "btn btn-default navbar-btn btn-sm" type = "button" >ZZZ Food </button></li>
+                  </div>
+                </nav>
+                <!-- restaurand info -->
+                <div class ="jumbotron">
+                  <div class = "container">
+                    <div class ="row">
+
+                      <div class = " col-md-3 col-md-3">
+                        <a href ="#" class = "thumbnail" >
+                            <img src ="blog_post.jpg" alt = "..."></a>
+                            <div class = "caption">             
+                              <h2> Restaurant Name1</h2>
+                              <h3> price: $$ <br> time: xx -xx </h3>
+                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
+                            </div>
+                        </div>
+                      
+                     <div class = " col-md-3 col-md-3">
+                        <a href ="#" class = "thumbnail" >
+                            <img src ="blog_post.jpg" alt = "..."></a>
+                            <div class = "caption">             
+                              <h2> Restaurant Name2</h2>
+                              <h3> price: $$ <br> time: xx -xx </h3>
+                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
+                            </div>
+
+                        </div><div class = " col-md-3 col-md-3">
+                        <a href ="#" class = "thumbnail" >
+                            <img src ="blog_post.jpg" alt = "..."></a>
+                            <div class = "caption">             
+                              <h2> Restaurant Name3</h2>
+                              <h3> price: $$ <br> time: xx -xx </h3>
+                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
+                            </div>
+
+                        </div><div class = " col-md-3 col-md-3">
+                        <a href ="#" class = "thumbnail" >
+                            <img src ="blog_post.jpg" alt = "..."></a>
+                            <div class = "caption">             
+                              <h2> Restaurant Name4</h2>
+                              <h3> price: $$ <br> time: xx -xx </h3>
+                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
+                            </div>
+
+                        </div><div class = " col-md-3 col-md-3">
+                        <a href ="#" class = "thumbnail" >
+                            <img src ="blog_post.jpg" alt = "..."></a>
+                            <div class = "caption">             
+                              <h2> Restaurant Name5</h2>
+                              <h3> price: $$ <br> time: xx -xx </h3>
+                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
+                            </div>
+                        </div>
+                </div>
+                 		
+                 	</ul>
+
+
 </html>
