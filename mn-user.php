@@ -1,14 +1,3 @@
-<?php
-	require_once("mn-config.php");
-	require_once("mn-dbactions.php");
-	require_once("mn-db.php");
-	
-	session_start();
-
-	if(!isset($_SESSION["username"])){
-		header("location:mn-signin.php");
-	}
-?>
 
 <!doctype html>
 <html lang="en">
