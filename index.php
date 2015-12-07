@@ -127,14 +127,14 @@
      </div>
 </div>
 
- <div class="space-10"></div>
+ <!--<div class="space-10"></div>
     <div class="section section-gray" id="footers">     
         <div class="container">
     </div>
         <div class="credit" style="text-align:center" >
                 &copy Referred 2015 Creative Tim
                 </div>
-            </div>
+            </div>-->
        
 
 
