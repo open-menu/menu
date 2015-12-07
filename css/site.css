@@ -334,6 +334,6 @@ html,body{
 
 .parallax .parallax-image img{
     opacity: 0.78 !important;
-    width: 1220px !important;
-    height: 600px !important;
+    width: 100% !important;
+    height: 700px !important;
 }
