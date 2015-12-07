@@ -999,3 +999,9 @@
 .container-right-click h4{
     color: white;margin-top: 45px;font-weight: 200;margin-bottom: 0;
 }
+
+#map{ 
+    position:relative; 
+    width:100%; 
+    height: calc(100% - 60px);
+}

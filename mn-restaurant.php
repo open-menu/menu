@@ -87,119 +87,6 @@
                  <!-- end navbar -->
              </div>
 
-  <!--<div class="row" id="product-cards">
-     <div class="col-md-3">
-        <div class="card card-refine">
-           <div class="header">
-               <h4 class="title">Refine
-                   <button class="btn btn-default btn-xs btn pull-right btn-simple" rel="tooltip" title="Reset Filter">
-                       <i class="fa fa-refresh"></i>
-                   </button>
-               </h4>
-           </div>
-      <div class="content">      
-          <div class="panel-group" id="accordion">       
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                     <h6 class="panel-title">
-                         <a data-toggle="collapse" href="#refineRecipe">
-                            Recipe
-                         <i class="fa fa-caret-up pull-right"></i>
-                         </a>
-                     </h6>
-                  </div>
-          <div id="refineRecipe" class="panel-collapse collapse in">
-            <div class="panel-body">
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox" checked="">
-                               Chinese
-                       </label>
-                    </div>
-               </div>
-    
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                 <h6 class="panel-title">
-                    <a data-toggle="collapse" href="#refineCuisine" class="collapsed">
-                       Cuisine
-                    <i class="fa fa-caret-up pull-right"></i>
-                    </a>
-                 </h6>
-             </div>
-               <div id="refineCuisine" class="panel-collapse collapse">
-                  <div class="panel-body">
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox" checked="">
-                               Chinese
-                       </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               American
-                       </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               Thai
-                       </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               Japanese            
-                             </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               Korean
-                       </label>
-                       <label class="checkbox">
-                              <input type="checkbox" value="" data-toggle="checkbox">
-                               Italian
-                              </label>
-                       <label class="checkbox">
-                              <input type="checkbox" value="" data-toggle="checkbox">
-                               Mexican
-                       </label>
-                  </div>
-                </div>
-             </div>
-                                  
-             <div class="panel panel-default">
-                 <div class="panel-heading">
-                      <h6 class="panel-title">
-                           <a data-toggle="collapse" href="#refineFoodType">
-                                          Restaurant type
-                           <i class="fa fa-caret-up pull-right"></i>
-                           </a>
-                      </h6>
-                 </div>
-              <div id="refineFoodType" class="panel-collapse collapse in">
-                   <div class="panel-body panel-scroll">
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox" checked="">
-                                All
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Fast Food
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Fine Dining
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Bars
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Coffee and Tea Shops
-                        </label>
-                   </div>
-              </div>
-              </div><!-- end panel -->
-          <!--/div>  
-        </div>
-     </div> <!-- end card -->
-  <!--/div>
-</div>
-
 <!--   Big container   -->
     <div class="container" >
         <div class="row">
@@ -240,10 +127,13 @@
                                         <label>Restaurant Type</label>
                                         <select class="form-control">
                                             <option disabled="" selected="">- Restaurant type -</option>
-                                            <option>Fast Food</option>
-                                            <option>Fine Dining</option>
-                                            <option>Coffee and tea shops</option>
+                                            <option>Breakfast</option>
+                                            <option>Brunch</option>
+                                            <option>Lunch</option>
+                                            <option>Dinner</option>
+                                            <option>Tea & Coffee</option>
                                             <option>Bars</option>
+                                            <option>Bakery & Desserts</option>
                                         </select>
                                       </div>
                                   </div>
@@ -251,14 +141,23 @@
                                       <div class="form-group">
                                           <label>Cuisine</label>
                                           <select class="form-control">
-                                            <option disabled="" selected="">- Cuisine -</option>
-                                            <option>Chinese</option>
+                                            <option disabled="" selected="">- Cuisine -</option>                                            
                                             <option>American</option>
-                                            <option>Thai</option>
+                                            <option>Chinese</option>
+                                            <option>Italian</option>                                            
                                             <option>Korean</option>
                                             <option>Japanese</option>
+                                            <option>Portuguese</option>
+                                            <option>Thai</option>
+                                            <option>Indian</option>
+                                            <option>French</option>
+                                            <option>Caribbean</option>
+                                            <option>Geek</option>
                                             <option>Mexican</option>
-                                            <option>Italian</option>
+                                            <option>Vietnamese</option>
+                                            <option>Arab</option>
+                                            <option>Jewish</option>
+                                            <option>German</option>
                                           </select>
                                       </div>
                                   </div>
