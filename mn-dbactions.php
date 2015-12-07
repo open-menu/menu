@@ -3,6 +3,8 @@
  * Functions that is used to perform actions on database
  */
 
+require_once("mn-classes.php");
+
 function type_to_table($type){
 	if($type == "user" || $type == "customer"){
 		$table = "user";
@@ -66,6 +68,14 @@ function signin_check($dbh, $username, $password, $type){
 
 		if(count($result)> 0 && password_verify($password, $result["password"])){
 			$_SESSION["username"] = $result["username"];
+			
+			//for user
+			if($type == "user"){
+				$_SESSION["user"] = new User($result, $dbh);
+			}else if($type == "restaurant"){
+				$_SESSION["restaurant"] = new Restaurant($result, $dbh);
+			}
+			
 			return true;
 		}else{
 			return false;

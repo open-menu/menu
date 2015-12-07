@@ -2,12 +2,16 @@
 	require_once("mn-config.php");
 	require_once("mn-dbactions.php");
 	require_once("mn-db.php");
+	require_once("mn-classes.php");
+
 	
 	session_start();
 
 	if(!isset($_SESSION["username"])){
 		header("location:mn-signin.php");
 	}
+
+	$user = $_SESSION["user"];
 ?>
 
 <!doctype html>
@@ -147,7 +151,7 @@
 						<div class="col-md-3 col-md-3" style="margin-top:1em">
 							<div class="user-info">
 								<a href="#" class="food-catagory">
-									<img src="../menu/image/2.jpg" class="path1">
+									<img src="<?php echo $user->userAvatar;?>" class="path1">
 									<span>
 										<div class="btn-food-catagory0" align="center"><p></p><i class="icon-hamburger"></i><strong>American</strong></div>
 										<div class="btn-food-catagory1" align="center"><p></p><strong>Chinese</strong></div>
@@ -158,7 +162,7 @@
 									</span>
 								</a>
 
-								<div class="btn-ice1" align="center"><p></p><strong><?php echo $_SESSION['username'];?></strong></div>
+								<div class="btn-ice1" align="center"><p></p><strong><?php echo $user->username;?></strong></div>
 								<div class="btn-ice2" align="center"><p></p><i class="fa fa-cog fa=spin"></i><strong>Account</strong></div>
 								<div class="btn-ice3" align="center"><p></p><i class="fa fa-shopping-cart"></i><strong>Cart</strong></div>
 								<div class="btn-ice4">

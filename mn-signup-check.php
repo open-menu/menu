@@ -24,7 +24,7 @@ if( isset($_POST["username"]) && isset($_POST["password"])
 	if( username_available($dbh, $username, $type) ){
 		create_user($dbh, $username, $password, $type, $email);
 
-		$_SESSION["username"] = $username;
+		signin_check($dbh, $username, $password, $type);
 		header("Location: mn-$type.php");
 	}else{
 		header("Location: mn-signup.php?check=false");
