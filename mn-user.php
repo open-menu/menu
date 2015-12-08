@@ -4,7 +4,6 @@
 	require_once("mn-db.php");
 	require_once("mn-classes.php");
 
-	
 	session_start();
 
 	if(!isset($_SESSION["username"])){
