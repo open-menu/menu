@@ -36,11 +36,11 @@ class Restaurant{
 	public $restaurantCuisine;
 	public $restaurantPrice;
 	public $restaurantCity;
+	public $address_l1;
+	public $address_l2;
+	public $address_l3;
 	
-	//database handle
-	private $dbh;
-
-	function __construct($result, $dbh){
+	function __construct($result, $db){
 		$this->restaurantName = $result["restaurant_name"];
 		$this->restaurantID = $result["id"];
 		$this->restaurantEmail = $result["email"];
@@ -57,10 +57,28 @@ class Restaurant{
 		$this->restaurantCuisine = $result["restaurant_cuisine"];
 		$this->restaurantPrice = $result["restaurant_price"];
 		$this->restaurantCity = $result["restaurant_city"];
+		
+		$this->address_l1 = $result["restaurant_address_l1"];
+		$this->address_l2 = $result["restaurant_address_l2"];
+		$this->address_l3 = $result["restaurant_address_l3"];
 	}
 
 	public function updateDB(){
+		$values = array(
+						'description'=>$this->restaurantDescription, 
+						'restaurant_type'=>$this->restaurantType, 
+						'restaurant_price'=>$this->restaurantPrice, 					
+						'restaurant_cuisine'=>$this->restaurantCuisine,
+						'restaurant_city'=>$this->restaurantCity,
+						'restaurant_address_l1'=>$this->address_l1,
+						'restaurant_address_l2'=>$this->address_l2,
+						'restaurant_address_l3'=>$this->address_l3,
+						'restaurant_logo'=>$this->restaurantLogo,
+						'restaurant_name'=>$this->restaurantName,
+						'id'=>$this->restaurantID
+			);
 
+		update_restaurant($values);
 	}
 }
 

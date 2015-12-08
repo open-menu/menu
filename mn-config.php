@@ -28,4 +28,7 @@ define('DB_HOST', 'localhost');
 /** Database charset */
 define('DB_CHARSET', 'utf8');
 
+/** Restaurant and User Tables*/
+define('REST_TABLE', 'restaurant');
+define('USER_TABLE', 'user');
 ?>

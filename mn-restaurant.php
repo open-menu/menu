@@ -1,4 +1,9 @@
 <?php
+  require_once("mn-config.php");
+  require_once("mn-dbactions.php");
+  require_once("mn-db.php");
+  require_once("mn-classes.php");
+
   session_start();
 
   if(!isset($_SESSION["username"])){
@@ -208,7 +213,7 @@
             <!--      Wizard container        -->   
             <div class="wizard-container"> 
                 <div class="card wizard-card ct-wizard-azzure" id="wizard">
-                    <form action="" method="">
+                    <form action="mn-restaurant-init.php" method="post">
                 <!--        You can switch "ct-wizard-azzure"  with one of the next bright colors: "ct-wizard-blue", "ct-wizard-green", "ct-wizard-orange", "ct-wizard-red"  -->
                 
                     	<div class="wizard-header">
@@ -232,33 +237,33 @@
                                   <div class="col-sm-5 col-sm-offset-1">
                                       <div class="form-group">
                                         <label>What city is your restaurant in?</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Where is your restaurant located?">
+                                        <input type="text" class="form-control" name="restaurant_city" id="exampleInputEmail1" placeholder="Where is your restaurant located?">
                                       </div>
                                   </div>
                                   <div class="col-sm-5">
                                       <div class="form-group">
                                         <label>Restaurant Type</label>
-                                        <select class="form-control">
+                                        <select name="restaurant_type" class="form-control">
                                             <option disabled="" selected="">- Restaurant type -</option>
-                                            <option>Fast Food</option>
-                                            <option>Fine Dining</option>
-                                            <option>Coffee and tea shops</option>
-                                            <option>Bars</option>
+                                            <option value="Fast Food">Fast Food</option>
+                                            <option value="Fine Dining">Fine Dining</option>
+                                            <option value="Cafe">Coffee and tea shops</option>
+                                            <option value="Bar">Bar</option>
                                         </select>
                                       </div>
                                   </div>
                                   <div class="col-sm-5 col-sm-offset-1">
                                       <div class="form-group">
                                           <label>Cuisine</label>
-                                          <select class="form-control">
+                                          <select name="restaurant_cuisine" class="form-control">
                                             <option disabled="" selected="">- Cuisine -</option>
-                                            <option>Chinese</option>
-                                            <option>American</option>
-                                            <option>Thai</option>
-                                            <option>Korean</option>
-                                            <option>Japanese</option>
-                                            <option>Mexican</option>
-                                            <option>Italian</option>
+                                            <option value="Chinese">Chinese</option>
+                                            <option value="American">American</option>
+                                            <option value="Thai">Thai</option>
+                                            <option value="Korean">Korean</option>
+                                            <option value="Japanese">Japanese</option>
+                                            <option value="Mexican">Mexican</option>
+                                            <option value="Italian">Italian</option>
                                           </select>
                                       </div>
                                   </div>
@@ -266,7 +271,7 @@
                                       <div class="form-group">
                                           <label>Daily Price</label>
                                           <div class="input-group">
-                                              <input type="text" class="form-control">
+                                              <input name="restaurant_price" type="text" class="form-control">
                                               <span class="input-group-addon">$</span>
                                           </div>
                                       </div>
@@ -305,9 +310,7 @@
                                     <div class="col-sm-6 col-sm-offset-1">
                                          <div class="form-group">
                                             <label>Restaurant description</label>
-                                            <textarea class="form-control" placeholder="" rows="9">
-                                                
-                                            </textarea>
+                                            <textarea name="description" class="form-control" placeholder="" rows="9"></textarea>
                                           </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -322,7 +325,7 @@
                         <div class="wizard-footer">
                             	<div class="pull-right">
                                     <input type='button' class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='Next' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-info btn-wd btn-sm' name='finish' value='Finish' />
+                                    <input type='submit' class='btn btn-finish btn-fill btn-info btn-wd btn-sm' value='Finish' />
         
                                 </div>
                                 <div class="pull-left">
