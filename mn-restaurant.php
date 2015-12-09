@@ -1,8 +1,19 @@
 <?php
+  require_once("mn-config.php");
+  require_once("mn-dbactions.php");
+  require_once("mn-db.php");
+  require_once("mn-classes.php");
+
   session_start();
 
-  if(!isset($_SESSION["username"])){
+  if(!isset($_SESSION["username"]) || !isset($_SESSION["restaurant"])){
     header("location:mn-signin.php");
+  }
+
+  $restaurant = $_SESSION["restaurant"];
+
+  if(!$restaurant->isActive){
+    header("location:mn-restaurant-init.php");
   }
 ?>
 <!doctype html>
@@ -32,220 +43,11 @@
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
-  <div class="parallax">
-        <div class="parallax-image">
-            <img src="blog_post.jpg" width="530" height="650">
-        </div>
-        	<div>
-        		<!-- Navbar will come here -->
-        	  	 <nav class="navbar navbar-default" role="navigation-demo">
-                  <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-default2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <a class="navbar-brand" href="../menu">Home</a>
-                    </div>
+<h1> Restaurant </h1>
+<a href="mn-create-menu.php">Create Menu</a><br>
+<a href="mn-add-item.php">Add Item</a>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navigation-default2">
-                      <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                TeamNewbee
-                                <b class="caret"></b>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="http://teamnewbee.blogspot.com/">About us</a></li>
-                                <li class="divider"></li>
-                                <li><a href="https://github.com/open-menu/menu">Github Repo</a></li>
-                                <li class="divider"></li>
-                                <li><a href="http://teamnewbee.blogspot.com/2015/09/project-pitch.html">Project Pitch</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
-                        </li>
-                      </ul>
-                       <form class="navbar-form navbar-left navbar-search-form" role="search">
-                         <div class="form-group">
-                              <input type="text" value="" class="form-control" placeholder="Search for a restaurant">
-                         </div>
-                      </form>
-                      <!--<ul class="nav navbar-nav navbar-right">
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspRegister</button></li>
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal"><i class="fa fa-sign-in"></i>&nbsp&nbspSign in</button></li>
-                       </ul>-->
-
-                    </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container-fluid -->
-                 </nav>
-                 <!-- end navbar -->
-             </div>
-
-<!--   Big container   -->
-    <div class="container" >
-        <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-           
-            <!--      Wizard container        -->   
-            <div class="wizard-container"> 
-                <div class="card wizard-card ct-wizard-azzure" id="wizard">
-                    <form action="" method="">
-                <!--        You can switch "ct-wizard-azzure"  with one of the next bright colors: "ct-wizard-blue", "ct-wizard-green", "ct-wizard-orange", "ct-wizard-red"  -->
-                
-                    	<div class="wizard-header">
-                        	<h3>
-                        	   <b>LIST</b> YOUR MENU <br>
-                        	   <small>This information will let us know more about your restaurant.</small>
-                        	</h3>
-                    	</div>
-                    	<ul>
-                            <li><a href="#details" data-toggle="tab">Details</a></li>
-                            <li><a href="#menu" data-toggle="tab">Menu</a></li>
-                            <li><a href="#description" data-toggle="tab">Description</a></li>
-                        </ul>
-                        
-                        <div class="tab-content">
-                            <div class="tab-pane" id="details">
-                              <div class="row">
-                                  <div class="col-sm-12">
-                                    <h4 class="info-text"> Let's start with the basic details</h4>
-                                  </div>
-                                  <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                        <label>What city is your restaurant in?</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Where is your restaurant located?">
-                                      </div>
-                                  </div>
-                                  <div class="col-sm-5">
-                                      <div class="form-group">
-                                        <label>Restaurant Type</label>
-                                        <select class="form-control">
-                                            <option disabled="" selected="">- Restaurant type -</option>
-                                            <option>Breakfast</option>
-                                            <option>Brunch</option>
-                                            <option>Lunch</option>
-                                            <option>Dinner</option>
-                                            <option>Tea & Coffee</option>
-                                            <option>Bars</option>
-                                            <option>Bakery & Desserts</option>
-                                        </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                          <label>Cuisine</label>
-                                          <select class="form-control">
-                                            <option disabled="" selected="">- Cuisine -</option>                                            
-                                            <option>American</option>
-                                            <option>Chinese</option>
-                                            <option>Italian</option>                                            
-                                            <option>Korean</option>
-                                            <option>Japanese</option>
-                                            <option>Portuguese</option>
-                                            <option>Thai</option>
-                                            <option>Indian</option>
-                                            <option>French</option>
-                                            <option>Caribbean</option>
-                                            <option>Geek</option>
-                                            <option>Mexican</option>
-                                            <option>Vietnamese</option>
-                                            <option>Arab</option>
-                                            <option>Jewish</option>
-                                            <option>German</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-sm-5">
-                                      <div class="form-group">
-                                          <label>Daily Price</label>
-                                          <div class="input-group">
-                                              <input type="text" class="form-control">
-                                              <span class="input-group-addon">$</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="tab-pane" id="menu">
-                                <h4 class="info-text">Do you include a menu? </h4>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="col-sm-4 col-sm-offset-2">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="You may need a menu to visualize the food from kitchen">
-                                                <input type="radio" name="job" value="Design">
-                                                <div class="icon">
-                                                    <i class="fa fa-ban"></i>
-                                                </div>
-                                                <h6>No Menu</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you already have a menu ready.">
-                                                <input type="radio" name="job" value="Code">
-                                                <div class="icon">
-                                                    <i class="fa fa-cutlery"></i>
-                                                </div>
-                                                <h6>Includes Menu</h6>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="description">
-                                <div class="row">
-                                    <h4 class="info-text"> Drop us a small description </h4>
-                                    <div class="col-sm-6 col-sm-offset-1">
-                                         <div class="form-group">
-                                            <label>Restaurant description</label>
-                                            <textarea class="form-control" placeholder="" rows="9">
-                                                
-                                            </textarea>
-                                          </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                         <div class="form-group">
-                                            <label>Example</label>
-                                            <p class="description">"This restaurant has estalished since 1957. We have a good amount population of people as our visitors and some regular customers whom come every sunday. It has some good reputations around the neighborhood."</p>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wizard-footer">
-                            	<div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='Next' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-info btn-wd btn-sm' name='finish' value='Finish' />
-        
-                                </div>
-                                <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
-                                </div>
-                                <div class="clearfix"></div>
-                        </div>	
-                    </form>
-                </div>
-            </div> <!-- wizard container -->
-        </div>
-        </div> <!-- row -->
-    </div> <!--  big container -->
-
-<div class="space-0"></div>
-    <div class="section section-gray" id="footers">     
-        <div class="container">
-    </div>
-        <div class="credit" style="text-align:center" >
-               &copy Referred 2015 Creative Tim
-                </div>
-            </div>
-       
-
+      
 
 </body>
 
