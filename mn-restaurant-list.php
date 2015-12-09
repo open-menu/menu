@@ -1,3 +1,10 @@
+<?php
+  require_once("mn-config.php");
+  require_once("mn-dbactions.php");
+  require_once("mn-db.php");
+  require_once("mn-classes.php");
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -273,68 +280,37 @@
                         </div> <!-- end card -->
                     </div>
                     <div class ="container">
-                       
-                      <div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name1</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
-                        </div>
-                      
-                     <div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name2</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
-
-                        </div><div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name3</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
-
-                        </div><div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name4</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
-                </div>
-          	</ul>
-            
-             
-           
-
-
-                     
-             
-    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+                      <?php
+                        $rest_list = get_restaurant_list();
+                        foreach($rest_list as $rest){
+                          echo "<div class = \"col-md-3 col-md-3\">";
+                          echo "<a href =\"#\" class = \"thumbnail\" >";
+                          echo "<img src =\"blog_post.jpg\" alt = \"...\">";
+                          echo "</a>";
+                          echo "<div class = \"caption\">";
+                          echo "<h2>".$rest['restaurant_name']."</h2>";
+                          echo "<h3> price: $".$rest['restaurant_price']."<br>time: 9:00 - 12:00</h3>";
+                          echo "<p><a href=\"mn-menu-detail.php?menu_id=".$rest['id']."\" class = \"btn btn-primary\" role=\"button\">Menu</a></p>";
+                          echo "</div></div>";
+                        }
+                      ?> 
+                    </div>
+  <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 
 	<!--  Plugins -->
 	<script src="js/gsdk-checkbox.js"></script>
-    <script src="js/site.js"></script>
+  <script src="js/site.js"></script>
 	<script src="js/gsdk-morphing.js"></script>
 	<script src="js/gsdk-radio.js"></script>
 	<script src="js/gsdk-bootstrapswitch.js"></script>
 	<script src="js/bootstrap-select.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/chartist.min.js"></script>
-    <script src="js/jquery.tagsinput.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="js/jquery.tagsinput.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 	<script src="js/get-shit-done.js"></script>
 

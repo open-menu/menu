@@ -233,4 +233,25 @@ function move_to_upload($FILES){
 	else
 		return "";
 }
+
+/**
+ * Get A List Of Restaurants
+ */
+function get_restaurant_list(){
+	try{
+		require("mn-db.php");
+
+		$sql = "SELECT id, restaurant_name, restaurant_price FROM ".REST_TABLE." WHERE 1";
+
+		$query = $dbh->prepare($sql);
+		$query->execute();
+
+		$result = $query->fetchAll();
+
+		return $result;
+	}catch(PDOException $e){
+		echo $e;
+		return array();
+	}
+}
 ?>
