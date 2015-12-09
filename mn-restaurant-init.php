@@ -9,16 +9,19 @@
 	if(!isset($_SESSION["username"])){
 		header("location:mn-signin.php");
 	}
-
-	if(isset($_POST["restaurant_city"])){
-		$restaurant = $_SESSION["restaurant"];
-
+  $restaurant = $_SESSION["restaurant"];
+	
+  if(isset($_POST["restaurant_city"])){
 		// ["restaurant_price"]=> string(2) "22" ["description"]=> string(4) "Ojig"
+    $restaurant->restaurantName = $_POST["restaurant_name"]; 
 		$restaurant->restaurantCity = $_POST["restaurant_city"];
 		$restaurant->restaurantType = $_POST["restaurant_type"];
 		$restaurant->restaurantCuisine = $_POST["restaurant_cuisine"];
 		$restaurant->restaurantPrice = $_POST["restaurant_price"];
 		$restaurant->restaurantDescription = $_POST["description"];
+    $restaurant->address_l1 = $_POST["address_l1"];
+    $restaurant->address_l2 = $_POST["address_l2"];
+    $restaurant->address_l3 = $_POST["address_l3"];
 		$restaurant->isActive = true;
 
 		$update_failed = false;
@@ -115,118 +118,7 @@
                  <!-- end navbar -->
              </div>
 
-  <!--<div class="row" id="product-cards">
-     <div class="col-md-3">
-        <div class="card card-refine">
-           <div class="header">
-               <h4 class="title">Refine
-                   <button class="btn btn-default btn-xs btn pull-right btn-simple" rel="tooltip" title="Reset Filter">
-                       <i class="fa fa-refresh"></i>
-                   </button>
-               </h4>
-           </div>
-      <div class="content">      
-          <div class="panel-group" id="accordion">       
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                     <h6 class="panel-title">
-                         <a data-toggle="collapse" href="#refineRecipe">
-                            Recipe
-                         <i class="fa fa-caret-up pull-right"></i>
-                         </a>
-                     </h6>
-                  </div>
-          <div id="refineRecipe" class="panel-collapse collapse in">
-            <div class="panel-body">
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox" checked="">
-                               Chinese
-                       </label>
-                    </div>
-               </div>
-    
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                 <h6 class="panel-title">
-                    <a data-toggle="collapse" href="#refineCuisine" class="collapsed">
-                       Cuisine
-                    <i class="fa fa-caret-up pull-right"></i>
-                    </a>
-                 </h6>
-             </div>
-               <div id="refineCuisine" class="panel-collapse collapse">
-                  <div class="panel-body">
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox" checked="">
-                               Chinese
-                       </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               American
-                       </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               Thai
-                       </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               Japanese            
-                             </label>
-                       <label class="checkbox">
-                             <input type="checkbox" value="" data-toggle="checkbox">
-                               Korean
-                       </label>
-                       <label class="checkbox">
-                              <input type="checkbox" value="" data-toggle="checkbox">
-                               Italian
-                              </label>
-                       <label class="checkbox">
-                              <input type="checkbox" value="" data-toggle="checkbox">
-                               Mexican
-                       </label>
-                  </div>
-                </div>
-             </div>
-                                  
-             <div class="panel panel-default">
-                 <div class="panel-heading">
-                      <h6 class="panel-title">
-                           <a data-toggle="collapse" href="#refineFoodType">
-                                          Restaurant type
-                           <i class="fa fa-caret-up pull-right"></i>
-                           </a>
-                      </h6>
-                 </div>
-              <div id="refineFoodType" class="panel-collapse collapse in">
-                   <div class="panel-body panel-scroll">
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox" checked="">
-                                All
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Fast Food
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Fine Dining
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Bars
-                        </label>
-                        <label class="checkbox">
-                               <input type="checkbox" value="" data-toggle="checkbox">
-                                Coffee and Tea Shops
-                        </label>
-                   </div>
-              </div>
-              </div><!-- end panel -->
-          <!--/div>  
-        </div>
-     </div> <!-- end card -->
-  <!--/div>
-</div>
+
 
 <!--   Big container   -->
     <div class="container" >
@@ -247,7 +139,7 @@
                     	</div>
                     	<ul>
                             <li><a href="#details" data-toggle="tab">Details</a></li>
-                            <li><a href="#menu" data-toggle="tab">Menu</a></li>
+                            <li><a href="#address" data-toggle="tab">Address</a></li>
                             <li><a href="#description" data-toggle="tab">Description</a></li>
                         </ul>
                         
@@ -260,14 +152,14 @@
                                   <div class="col-sm-5 col-sm-offset-1">
                                       <div class="form-group">
                                         <label>What city is your restaurant in?</label>
-                                        <input type="text" class="form-control" name="restaurant_city" id="exampleInputEmail1" placeholder="Where is your restaurant located?">
+                                        <input type="text" class="form-control" name="restaurant_city" id="exampleInputEmail1" value="<?php echo $restaurant->restaurantCity;?>">
                                       </div>
                                   </div>
                                   <div class="col-sm-5">
                                       <div class="form-group">
                                         <label>Restaurant Type</label>
                                         <select name="restaurant_type" class="form-control">
-                                            <option disabled="" selected="">- Restaurant type -</option>
+                                            <option selected="" value="<?php echo $restaurant->restaurantType;?>"><?php echo $restaurant->restaurantType;?></option>
                                             <option value="Fast Food">Fast Food</option>
                                             <option value="Fine Dining">Fine Dining</option>
                                             <option value="Cafe">Coffee and tea shops</option>
@@ -279,7 +171,7 @@
                                       <div class="form-group">
                                           <label>Cuisine</label>
                                           <select name="restaurant_cuisine" class="form-control">
-                                            <option disabled="" selected="">- Cuisine -</option>
+                                            <option selected="" value="<?php echo $restaurant->restaurantCuisine;?>"><?php echo $restaurant->restaurantCuisine;?></option>
                                             <option value="Chinese">Chinese</option>
                                             <option value="American">American</option>
                                             <option value="Thai">Thai</option>
@@ -294,46 +186,51 @@
                                       <div class="form-group">
                                           <label>Daily Price</label>
                                           <div class="input-group">
-                                              <input name="restaurant_price" type="text" class="form-control">
+                                              <input name="restaurant_price" type="text" class="form-control" value="<?php echo $restaurant->restaurantPrice; ?>">
                                               <span class="input-group-addon">$</span>
                                           </div>
                                       </div>
                                   </div>
                               </div>
                             </div>
-                            <div class="tab-pane" id="menu">
-                                <h4 class="info-text">Do you include a menu? </h4>
+                            <!-- Address -->
+                            <div class="tab-pane" id="address">
                                 <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="col-sm-4 col-sm-offset-2">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="You may need a menu to visualize the food from kitchen">
-                                                <input type="radio" name="job" value="Design">
-                                                <div class="icon">
-                                                    <i class="fa fa-ban"></i>
-                                                </div>
-                                                <h6>No Menu</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you already have a menu ready.">
-                                                <input type="radio" name="job" value="Code">
-                                                <div class="icon">
-                                                    <i class="fa fa-cutlery"></i>
-                                                </div>
-                                                <h6>Includes Menu</h6>
-                                            </div>
-                                            
-                                        </div>
+                                    <h4 class="info-text"> The address of your restaurant.</h4>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                      <div class="form-group">
+                                        <label>Restairamt Name</label>
+                                        <input type="text" class="form-control" name="restaurant_name" id="exampleInputEmail1" value="<?php echo $restaurant->restaurantName;?>">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                      <div class="form-group">
+                                        <label>Address Line 1</label>
+                                        <input type="text" class="form-control" name="address_l1" id="exampleInputEmail1" value="<?php echo $restaurant->address_l1;?>">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                      <div class="form-group">
+                                        <label>Address Line 2</label>
+                                        <input type="text" class="form-control" name="address_l2" id="exampleInputEmail1" value="<?php echo $restaurant->address_l2;?>">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                      <div class="form-group">
+                                        <label>Address Line 3</label>
+                                        <input type="text" class="form-control" name="address_l3" id="exampleInputEmail1" value="<?php echo $restaurant->address_l3;?>">
+                                      </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="tab-pane" id="description">
                                 <div class="row">
                                     <h4 class="info-text"> Drop us a small description </h4>
                                     <div class="col-sm-6 col-sm-offset-1">
                                          <div class="form-group">
                                             <label>Restaurant description</label>
-                                            <textarea name="description" class="form-control" placeholder="" rows="9"></textarea>
+                                            <textarea name="description" class="form-control" rows="9"><?php echo $restaurant->restaurantDescription;?></textarea>
                                           </div>
                                     </div>
                                     <div class="col-sm-4">

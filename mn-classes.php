@@ -30,7 +30,6 @@ class Restaurant{
 	public $restaurantName;
 	public $restaurantID;
 	public $restaurantEmail;
-	public $restaurantAddress;
 	public $restaurantDescription;
 	public $restaurantType;
 	public $restaurantCuisine;
@@ -52,10 +51,7 @@ class Restaurant{
 		$this->restaurantDescription = $result["description"];
 		$this->restaurantLogo = $result["restaurant_logo"];
 
-		//three lines of address combined into single string
-		$this->restaurantAddress = $result["restaurant_address_l1"]."<br>".
-															$result["restaurant_address_l2"]."<br>".
-															$result["restaurant_address_l3"];
+
 
 		$this->restaurantType = $result["restaurant_type"];
 		$this->restaurantCuisine = $result["restaurant_cuisine"];
@@ -93,6 +89,19 @@ class Restaurant{
 	public function updateMenus(){
 		//update the menus array from the database
 		$this->restaurantMenus = get_menus($this->restaurantID);
+	}
+
+	public function getAddressString(){
+		//three lines of address combined into single string
+		
+		$address = $this->address_l1."<br>";
+		if($this->address_l2 != ""){
+			$address .=$this->address_l2."<br>";
+		}
+
+		$address .= $this->address_l3;
+
+		return $address;
 	}
 }
 
