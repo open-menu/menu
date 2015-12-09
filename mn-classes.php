@@ -39,6 +39,10 @@ class Restaurant{
 	public $address_l1;
 	public $address_l2;
 	public $address_l3;
+
+	public $isActive;
+
+	public $restaurantMenus;
 	
 	function __construct($result, $db){
 		$this->restaurantName = $result["restaurant_name"];
@@ -61,6 +65,10 @@ class Restaurant{
 		$this->address_l1 = $result["restaurant_address_l1"];
 		$this->address_l2 = $result["restaurant_address_l2"];
 		$this->address_l3 = $result["restaurant_address_l3"];
+
+		$this->isActive = $result["activated"];
+
+		$this->restaurantMenus = get_menus($this->restaurantID);
 	}
 
 	public function updateDB(){
@@ -75,12 +83,26 @@ class Restaurant{
 						'restaurant_address_l3'=>$this->address_l3,
 						'restaurant_logo'=>$this->restaurantLogo,
 						'restaurant_name'=>$this->restaurantName,
+						'activated'=>$this->isActive,
 						'id'=>$this->restaurantID
 			);
 
-		update_restaurant($values);
+		return update_restaurant($values);
+	}
+
+	public function updateMenus(){
+		//update the menus array from the database
+		$this->restaurantMenus = get_menus($this->restaurantID);
 	}
 }
 
+class Menu{
+	public $menuID;
+	public $menuTitle;
+	public $menuOwnerID;
+	public $menuImage;
+	public $menuCreatedDate;
 
+	public $menuItems;
+}
 ?>
