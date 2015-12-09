@@ -171,7 +171,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button id="submit" name="submit"class="btn btn-primary">Log In</button>
+              <button id="submit" name="submit"class="btn btn-primary">Login</button>
             </div>
           </fieldset>
         </form>
