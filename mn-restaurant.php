@@ -174,32 +174,29 @@
         </div>
         <form class="form-horizontal" action="mn-restaurant.php" method="post" enctype="multipart/form-data">
           <fieldset>
-          <div class="modal-body">        
-            
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="menu_title">Menu Title</label>  
-              <div class="col-md-4">
-              <input id="menu_title" name="menu_title" type="text" placeholder="" class="form-control input-md" required="">
-                
+            <div class="modal-body">                  
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="menu_title">Menu Title</label>  
+                <div class="col-md-4">
+                <input id="menu_title" name="menu_title" type="text" placeholder="" class="form-control input-md" required="">
+                  
+                </div>
+              </div>
+
+              <!-- Image Upload -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="menu_image">Menu Image</label>  
+                <div class="col-md-4">
+                <input id="menu_image" name="menu_image" type="file">
+                  
+                </div>
               </div>
             </div>
-
-            <!-- Image Upload -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="menu_image">Menu Image</label>  
-              <div class="col-md-4">
-              <input id="menu_image" name="menu_image" type="file">
-                
-              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="submit" name="submit"class="btn btn-primary">Create</button>
             </div>
-
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button id="submit" name="submit"class="btn btn-primary">Create</button>
-          </div>
           </fieldset>
         </form>
       </div><!-- /.modal-content -->

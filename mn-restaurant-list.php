@@ -79,9 +79,8 @@
                       </form>
                       <!--need to change-->
                       <ul class="nav navbar-nav navbar-right">
-                            <!--<li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspMy Favor</button></li>-->
-                          	<li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal"><i class="fa fa-sign-out"></i>&nbsp&nbspSign Out</button></li>
-                       </ul>
+                        <!--<li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspMy Favor</button></li>-->
+                        <li><button class="btn btn-round btn-fill btn-info" onclick="window.location.href='mn-signout.php'"><i class="fa fa-sign-in"></i>Sign Out</button></li>                       </ul>
      				
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
@@ -98,7 +97,7 @@
 
                  
                 <!-- restaurand info -->
-                <div class ="jumbotron">
+                <div class ="jumbotron" style="margin-bottom:0;">
                     
                     
                   <div class = "container">

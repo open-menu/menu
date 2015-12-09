@@ -106,7 +106,7 @@
                       </form>
                       <ul class="nav navbar-nav navbar-right">
                             <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal" onclick="window.location.href='mn-signup.php'"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspRegister</button></li>
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal" onclick="window.location.href='mn-signin.php'"><i class="fa fa-sign-in"></i>&nbsp&nbspSign in</button></li>
+                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signin_modal"><i class="fa fa-sign-in"></i>Login</button></li>
                        </ul>
 
                     </div><!-- /.navbar-collapse -->
@@ -127,14 +127,57 @@
      </div>
 </div>
 
- <!--<div class="space-10"></div>
-    <div class="section section-gray" id="footers">     
-        <div class="container">
-    </div>
-        <div class="credit" style="text-align:center" >
-                &copy Referred 2015 Creative Tim
+  <!-- Sign In Modal -->
+  <div id="signin_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color:white !important;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <form class="form-horizontal" action="mn-signin.php" method="post">
+          <fieldset>
+            <div class="modal-body">                     
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Username</label>  
+                <div class="col-md-4">
+                <input id="username" name="username" type="text" placeholder="" class="form-control input-md" required=""> 
                 </div>
-            </div>-->
+              </div>
+
+              <!-- Password input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Password</label>
+                <div class="col-md-4">
+                  <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">                   
+                </div>
+              </div>
+
+              <!-- Multiple Radios -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="radios"></label>
+                <div class="col-md-4">
+                <div>            
+                  <input type="radio" id="radio-0" name="type" value="user" checked="checked">
+                  <label for="radio-0" style="margin-left:10px;">User</label>  
+                </div>
+                <div>
+                  <input type="radio" id="radios-1" name="type" value="restaurant">
+                  <label for="radios-1" style="margin-left:10px;">Restaurant</label>  
+                </div>
+                </div>
+              </div>          
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="submit" name="submit"class="btn btn-primary">Log In</button>
+            </div>
+          </fieldset>
+        </form>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
        
 
 
