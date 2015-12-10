@@ -241,7 +241,7 @@ function get_restaurant_list(){
 	try{
 		require("mn-db.php");
 
-		$sql = "SELECT id, restaurant_name, restaurant_price FROM ".REST_TABLE." WHERE 1";
+		$sql = "SELECT id, restaurant_name, restaurant_price, restaurant_logo FROM ".REST_TABLE." WHERE 1";
 
 		$query = $dbh->prepare($sql);
 		$query->execute();

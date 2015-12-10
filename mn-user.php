@@ -91,58 +91,23 @@
 					<div class="row">
 
 		<!-- 需要菜的图片，名字，价钱 -->
+						<?php
+							$rest_list = get_restaurant_list();
+							
+							$new_rest_list = array_slice($rest_list, 0, 4);
 
-						<div class = " col-md-3 col-md-3">
-							<a href ="mn-dish-detail.php" class = "thumbnail" >
-								<img src ="../menu/image/unknow-img.png" alt = "..."></a>
-								<div class = "caption" style="margin-top:-1em">             
-									<h5> Restaurant Name1</h5>
-									<div class = "caption" style="margin-top:-1em">
-										<h5> price: $$ <br> 
-											<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
-										</h5>
-									</div>
-								</div>
-						</div>
+							foreach($new_rest_list as $rest){
+								echo "<div class='col-md-3 col-md-3'>";
+								echo "<a href =\"mn-dish-detail.php?restaurant_id=".$rest['id']."\" class = \"thumbnail\">";
+								echo '<img src ="'.$rest['restaurant_logo'].'" alt = "..."></a>';
+								echo '<div class="caption" style="margin-top:-1em">';
+								echo '<h5>'.$rest['restaurant_name'].'</h5>';
+								echo '<div class = "caption" style="margin-top:-1em">';
+								echo '<h5> price: '.$rest['restaurant_price'].' <br></h5>';
+								echo '</div></div></div>';
+							}
+						?>
 
-						<div class = " col-md-3 col-md-3">
-							<a href ="mn-dish-detail.php" class = "thumbnail" >
-								<img src ="blog_post.jpg" alt = "..."></a>
-								<div class = "caption" style="margin-top:-1em">             
-									<h5> Restaurant Name1</h5>
-									<div class = "caption" style="margin-top:-1em">
-										<h5> price: $$ <br> 
-											<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
-										</h5>
-									</div>
-								</div>
-						</div>
-					
-						<div class = " col-md-3 col-md-3">
-							<a href ="mn-dish-detail.php" class = "thumbnail" >
-								<img src ="blog_post.jpg" alt = "..."></a>
-								<div class = "caption" style="margin-top:-1em">             
-									<h5> Restaurant Name1</h5>
-									<div class = "caption" style="margin-top:-1em">
-										<h5> price: $$ <br> 
-											<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
-										</h5>
-									</div>
-								</div>
-						</div>
-
-						<div class = "col-md-3 col-md-3">
-							<a href ="mn-dish-detail.php" class = "thumbnail" >
-								<img src ="blog_post.jpg" alt = "..."></a>
-								<div class = "caption" style="margin-top:-1em">             
-									<h5> Restaurant Name1</h5>
-									<div class = "caption" style="margin-top:-1em">
-										<h5> price: $$ <br> 
-											<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
-										</h5>
-									</div>
-								</div>
-						</div>
 					</div> <!-- End first row -->
 
 			<!-- second row  personal  -->
@@ -150,7 +115,7 @@
 				<!--  Personal setting  -->
 						<div class="col-md-3 col-md-3" style="margin-top:1em">
 							<div class="user-info">
-								<a href="http://localhost/menu/mn-user.php#" class="food-catagory">
+								<a href="mn-user.php#" class="food-catagory">
 			<!-- 需要个人头像 -->
 									<img src="<?php echo $user->userAvatar;?>" class="path1">
 								</a>
@@ -173,7 +138,7 @@
 								<div id="house-box2"></div>
 								<div id="house-box3"></div>
 								<div class="newbee">
-								<img src="../menu/image/newbee.png" style="height:5.8em;width:14.3em;border-radius:20px">
+								<img src="image/newbee.png" style="height:5.8em;width:14.3em;border-radius:20px">
 									<div id="time" class="day-box" style="margin-top:-135px;margin-left:58px;font-size:20px" >
 										<?php
 											echo date("M j") . "<br>";
@@ -185,7 +150,7 @@
 							</div>
 							<div class="housetop-box2">
 								<div class="house-favo-box">
-									<a href="http://localhost/menu/mn-user-favorites.php#" class="fav-list">
+									<a href="mn-user-favorites.php#" class="fav-list">
 										<div class="house-favo" align="center">
 											<p></p><i class="fa fa-heart" ></i><strong>Favorites</strong>
 											<div class="winleft">
@@ -237,9 +202,9 @@
 											
 								</div>
 			<!--  三个a标签需要浏览过的菜色图片  -->
-								<a href="http://localhost/menu/mn-restaurant-list.php"><img src="../menu/image/3.jpg"  style="width:14.7em; height:7.7em; border: 0.2em solid black;border-radius:0.7em; overflow:hidden; margin-bottom:0.5em"></a>
-								<a href="http://localhost/menu/mn-restaurant-list.php"></a>><img src="../menu/image/4.jpg"  style="width:14.7em; height:7.7em; border: 0.2em solid black;border-radius:0.7em; overflow:hidden; margin-left:5em; margin-bottom:0.5em"></a>
-								<a href="http://localhost/menu/mn-restaurant-list.php"></a>><img src="../menu/image/6.jpg"  style="width:14.7em; height:7.7em; border: 0.2em solid black;border-radius:0.7em; overflow:hidden; margin-left:10em; margin-bottom:0.5em"></a>
+								<a href="mn-restaurant-list.php"><img src="image/3.jpg"  style="width:14.7em; height:7.7em; border: 0.2em solid black;border-radius:0.7em; overflow:hidden; margin-bottom:0.5em"></a>
+								<a href="mn-restaurant-list.php"></a>><img src="image/4.jpg"  style="width:14.7em; height:7.7em; border: 0.2em solid black;border-radius:0.7em; overflow:hidden; margin-left:5em; margin-bottom:0.5em"></a>
+								<a href="mn-restaurant-list.php"></a>><img src="image/6.jpg"  style="width:14.7em; height:7.7em; border: 0.2em solid black;border-radius:0.7em; overflow:hidden; margin-left:10em; margin-bottom:0.5em"></a>
 						</div>
 					</div>	<!-- Send row end -->
 				</div><!-- container end -->
