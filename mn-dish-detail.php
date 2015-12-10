@@ -50,7 +50,7 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                     </button>
-                    <a href="mn-user.php">
+                    <a href="<?php echo get_home($_SESSION["type"]);?>">
                         <div class="logo-container">
                             <div class="logo">
                                 <img src="<?php 
