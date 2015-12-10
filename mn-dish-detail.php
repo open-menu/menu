@@ -1,3 +1,17 @@
+<?php
+    require_once("mn-config.php");
+    require_once("mn-dbactions.php");
+    require_once("mn-db.php");
+    require_once("mn-classes.php");
+
+    session_start();
+
+    if(!isset($_SESSION["username"])){
+        header("location:mn-signin.php");
+    }
+
+    $user = $_SESSION["user"];
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -31,10 +45,10 @@
                     <a href="mn-user.php">
                         <div class="logo-container">
                             <div class="logo">
-                                <img src="image/new_logo.png" alt="">
+                                <img src="<?php echo $user->userAvatar; ?>" alt="">
                             </div>
                             <div class="brand">
-                                User Name
+                                <?php echo $user->username;?>
                             </div>
                         </div>
                     </a>
