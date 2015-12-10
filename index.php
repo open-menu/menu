@@ -26,7 +26,41 @@
 
 <div class="parallax">
         <div class="parallax-image">
-            <img src="blog_post.jpg" width="530" height="650">
+        <div id="carousel" >
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel slide" data-ride="carousel">
+
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              </ol>
+            
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" >
+                <div class="item active">
+                  <img src="blog_post.jpg">
+                </div>
+                <div class="item">
+                  <img src="image/dessert.jpg">
+                </div>
+                <div class="item">
+                  <img src="image/3.jpg">
+                </div>
+              </div>
+            
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="fa fa-angle-left"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="fa fa-angle-right"></span>
+              </a>
+        </div>
+    </div> <!-- end carousel -->
+    
+</div> <!-- end wrapper -->
         </div>
         	<div>
         		<!-- Navbar will come here -->
@@ -72,7 +106,7 @@
                       </form>
                       <ul class="nav navbar-nav navbar-right">
                             <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal" onclick="window.location.href='mn-signup.php'"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspRegister</button></li>
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal" onclick="window.location.href='mn-signin.php'"><i class="fa fa-sign-in"></i>&nbsp&nbspSign in</button></li>
+                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signin_modal"><i class="fa fa-sign-in"></i>Login</button></li>
                        </ul>
 
                     </div><!-- /.navbar-collapse -->
@@ -81,7 +115,7 @@
                  <!-- end navbar -->
              </div>
         <div class="motto">
-            <div>Grid Menu</div>
+            <div>OPEN MENU</div>
         </div>
         <h3 class="motivation">A Menu for Every Restaurant.</h3>
     </div>
@@ -93,285 +127,57 @@
      </div>
 </div>
 
-<!-- Modal -->
-
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#restaurant" aria-controls="restaurant" role="tab" data-toggle="tab">Restaurant</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Guest</a></li>
-   </ul>
-      </div>
-      <div class="modal-body">
-
-      <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="restaurant">
-      <!-- restaurant sign up -->
-      <form class="form-horizontal">
-    <fieldset>
-
-        <!-- Form Name -->
-        <legend>Restaurant Register</legend>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="username">Username</label>  
-          <div class="col-md-4">
-          <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required=""> 
-          </div>
+  <!-- Sign In Modal -->
+  <div id="signin_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color:white !important;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Login</h4>
         </div>
-
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="password">Password </label>
-          <div class="col-md-4">
-            <input id="password" name="password" type="password" placeholder="Password " class="form-control input-md" required="">
-          </div>
-        </div>
-
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="rpassword">Confirm Password</label>
-          <div class="col-md-4">
-            <input id="rpassword" name="rpassword" type="password" placeholder="Password" class="form-control input-md" required="">
-         </div>
-        </div>
-
-         <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="email">Email</label>  
-          <div class="col-md-4">
-          <input id="email" name="email" type="text" placeholder="Email address" class="form-control input-md" required="">
-          </div>
-        </div>
-        
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="restaurant">Restaurant Name</label>  
-          <div class="col-md-4">
-          <input id="restaurant" name="restaurant" type="text" placeholder="restaurant" class="form-control input-md" required="">
-          </div>
-        </div>
-
-         <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="phone">Phone</label>  
-          <div class="col-md-4">
-          <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control input-md" required="">
-          </div>
-        </div>
-        
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="address1">Address</label>  
-          <div class="col-md-4">
-          <input id="address1" name="address1" type="text" placeholder="Address " class="form-control input-md" required="">
-    
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="address1"></label>  
-          <div class="col-md-4">
-          <input id="address1" name="address1" type="text" placeholder="Address2" class="form-control input-md">
-    
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="city">City</label>  
-          <div class="col-md-4">
-          <input id="city" name="city" type="text" placeholder="City" class="form-control input-md" required="">
-    
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="selectbasic">Select Basic</label>
-          <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
-		        <option value="">Choose State:</option>
-		        <option value="AL">Alabama</option>
-		        <option value="AK">Alaska</option>
-		        <option value="AZ">Arizona</option>
-		        <option value="AR">Arkansas</option>
-		        <option value="CA">California</option>
-		        <option value="CO">Colorado</option>
-		        <option value="CT">Connecticut</option>
-		        <option value="DE">Delaware</option>
-		        <option value="FL">Florida</option>
-		        <option value="GA">Georgia</option>
-		        <option value="HI">Hawaii</option>
-		        <option value="ID">Idaho</option>
-		        <option value="IL">Illinois</option>
-		        <option value="IN">Indiana</option>
-		        <option value="IA">Iowa</option>
-		        <option value="KS">Kansas</option>
-		        <option value="KY">Kentucky</option>
-		        <option value="LA">Louisiana</option>
-		        <option value="ME">Maine</option>
-		        <option value="MD">Maryland</option>
-		        <option value="MA">Massachusetts</option>
-		        <option value="MI">Michigan</option>
-		        <option value="MN">Minnesota</option>
-		        <option value="MS">Mississippi</option>
-		        <option value="MO">Missouri</option>
-		        <option value="MT">Montana</option>
-		        <option value="NE">Nebraska</option>
-		        <option value="NV">Nevada</option>
-		        <option value="NH">New Hampshire</option>
-		        <option value="NJ">New Jersey</option>
-		        <option value="NM">New Mexico</option>
-		        <option value="NY">New York</option>
-		        <option value="NC">North Carolina</option>
-		        <option value="ND">North Dakota</option>
-		        <option value="OH">Ohio</option>
-		        <option value="OK">Oklahoma</option>
-		        <option value="OR">Oregon</option>
-		        <option value="PA">Pennsylvania</option>
-		        <option value="RI">Rhode Island</option>
-		        <option value="SC">South Carolina</option>
-		        <option value="SD">South Dakota</option>
-		        <option value="TN">Tennessee</option>
-		        <option value="TX">Texas</option>
-		        <option value="UT">Utah</option>
-		        <option value="VT">Vermont</option>
-		        <option value="VA">Virginia</option>
-		        <option value="WA">Washington</option>
-		        <option value="WV">West Virginia</option>
-		        <option value="WI">Wisconsin</option>
-		        <option value="WY">Wyoming</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="zip">Zip Code</label>  
-          <div class="col-md-4">
-          <input id="zip" name="zip" type="text" placeholder="Zip Code" class="form-control input-md" required="">
-    
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="contactname">Contact Name</label>  
-          <div class="col-md-4">
-          <input id="contactname" name="contactname" type="text" placeholder="Full Name" class="form-control input-md" required="">
-    
-          </div>
-        </div>
-
-        <!-- Button (Double) -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="register"></label>
-          <div class="col-md-8">
-            <button id="register" name="register" class="btn btn-success">Register</button>
-            <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
-          </div>
-        </div>
-
-        </fieldset>
-        </form>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="profile">
-      <!-- guest sign up -->
-        <form class="form-horizontal">
-    <fieldset>
-
-        <!-- Form Name -->
-        <legend>Guest Register</legend>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="username">Username</label>  
-          <div class="col-md-4">
-          <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required="">
-          <span class="help-block">Name of User</span>  
-          </div>
-        </div>
-
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="password">Password </label>
-          <div class="col-md-4">
-            <input id="password" name="password" type="password" placeholder="Password " class="form-control input-md" required="">
-            <span class="help-block"> Password </span>
-          </div>
-        </div>
-
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="rpassword">confirm</label>
-          <div class="col-md-4">
-            <input id="rpassword" name="rpassword" type="password" placeholder="Password" class="form-control input-md" required="">
-            <span class="help-block">Retype password</span>
-          </div>
-        </div>
-
-         <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="email">Email</label>  
-          <div class="col-md-4">
-          <input id="email" name="email" type="text" placeholder="Email address" class="form-control input-md" required="">
-          <span class="help-block">Email will be used for notication messages</span>  
-          </div>
-        </div>
-        
-         <!-- Button (Double) -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="register"></label>
-          <div class="col-md-8">
-            <button id="register" name="register" class="btn btn-success">Register</button>
-            <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
-          </div>
-        </div>
-    </div>
-  </div>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-      <div class="modal-body">
-
-	  <div class="login-container">
-            <div id="output"></div>
-            <div class="avatar"></div>
-            <div class="form-box">
-                <form action="mn-signin.php" method="post">
-                    <input name="user" type="text" placeholder="username">
-                    <input name="password" type="password" placeholder="password">
-                    <button class="btn btn-info btn-block login" type="submit">Login</button>
-                </form>
-            </div>
-       </div>
-      </div>
-
-    </div>
-  </div>
-</div>
- 
- <div class="space-50"></div>
-    <div class="section section-gray" id="footers">     
-        <div class="container">
-    </div>
-        <div class="credit" style="text-align:center" >
-                &copy Referred 2015 Creative Tim
+        <form class="form-horizontal" action="mn-signin.php" method="post">
+          <fieldset>
+            <div class="modal-body">                     
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Username</label>  
+                <div class="col-md-4">
+                <input id="username" name="username" type="text" placeholder="" class="form-control input-md" required=""> 
                 </div>
+              </div>
+
+              <!-- Password input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Password</label>
+                <div class="col-md-4">
+                  <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">                   
+                </div>
+              </div>
+
+              <!-- Multiple Radios -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="radios"></label>
+                <div class="col-md-4">
+                <div>            
+                  <input type="radio" id="radio-0" name="type" value="user" checked="checked">
+                  <label for="radio-0" style="margin-left:10px;">User</label>  
+                </div>
+                <div>
+                  <input type="radio" id="radios-1" name="type" value="restaurant">
+                  <label for="radios-1" style="margin-left:10px;">Restaurant</label>  
+                </div>
+                </div>
+              </div>          
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="submit" name="submit"class="btn btn-primary">Login</button>
+            </div>
+          </fieldset>
+        </form>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
        
 
 

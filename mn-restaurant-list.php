@@ -1,3 +1,10 @@
+<?php
+  require_once("mn-config.php");
+  require_once("mn-dbactions.php");
+  require_once("mn-db.php");
+  require_once("mn-classes.php");
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +13,7 @@
 	<link rel="icon" type="image/png" href="img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>OpenMenu</title>
+	<title>Open Menu | Restaurant List</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -46,7 +53,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="#">Home</a>
+                      <a class="navbar-brand" href="<?php echo get_home($_SESSION["type"]);?>">Home</a>
                     </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,77 +86,233 @@
                       </form>
                       <!--need to change-->
                       <ul class="nav navbar-nav navbar-right">
-                            <li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspMy Favor</button></li>
-                          	<li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#signInModal"><i class="fa fa-sign-out"></i>&nbsp&nbspSign Out</button></li>
-                       </ul>
+                        <!--<li><button class="btn btn-round btn-fill btn-info" data-toggle="modal" data-target="#registerModal"><i class="fa fa-pencil-square-o"></i>&nbsp&nbspMy Favor</button></li>-->
+                        <li><button class="btn btn-round btn-fill btn-info" onclick="window.location.href='mn-signout.php'"><i class="fa fa-sign-in"></i>Sign Out</button></li>                       </ul>
      				
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
-                 </nav>
-                 <!-- end navbar -->
-
-                 <!-- sorting food -->
-               <nav class="navbar navbar-default navbar-form" >
-                  <div class="container">
+                  <!-- sorting food -->
+               <!--<nav class="navbar navbar-default navbar-form" >
+                  <div class="container">                   
                  		<li> <button class = "btn btn-default navbar-btn btn-sm" type = "button" >XXX Food </button>
                          <button class = "btn btn-default navbar-btn btn-sm" type = "button" >YYY Food </button>
                          <button class = "btn btn-default navbar-btn btn-sm" type = "button" >ZZZ Food </button></li>
                   </div>
                 </nav>
+                 </nav>-->
+                 <!-- end navbar -->
+
+                 
                 <!-- restaurand info -->
-                <div class ="jumbotron">
+                <div class ="jumbotron" style="margin-bottom:0;">
+                    
+                    
                   <div class = "container">
-                    <div class ="row">
+                       <div class="row" id="product-cards">
+                    <div class="col-md-3">
+                        <div class="card card-refine">
+                            <div class="header">
+                                <h4 class="title">Refine
+                                    <button class="btn btn-default btn-xs btn pull-right btn-simple" rel="tooltip" title="Reset Filter">
+                                        <i class="fa fa-refresh"></i>
+                                    </button>
+                                 </h4>
+                            </div>
+                            <div class="content">      
+                                  <div class="panel-group" id="accordion">
+                  
+                                  <!--<div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h6 class="panel-title">
+                                        <a href="#refinePrice">
+                                          Price Range
+                                          <i class="fa fa-caret-up pull-right"></i>
+                                        </a>
+                                      </h6>
+                                    </div>
+                                    <div id="refinePrice">
+                                      <div class="panel-body">
+                                         <span class="price price-left">&dollar; 5</span>
+                                         <span class="price price-right">&dollar; 500</span>
+                                         <div class="clearfix"></div>
+                                         <div id="refine-price-range" class="slider slider-info"></div>
+                                      </div>
+                                    </div>
+                                  </div>-->
+                                  
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h6 class="panel-title">
+                                        <a href="#refineType">
+                                          Type
+                                          <i class="fa fa-caret-up pull-right"></i>
+                                        </a>
+                                      </h6>
+                                    </div>
+                                    <div id="refineType">
+                                      <div class="panel-body">
+                                         <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox" checked="">
+                                            Breakfast
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Brunch
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Lunch
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Dinner
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">     
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Tea & Coffee
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Bars
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Bakery & Desserts
+                                          </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                   
+                                   <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h6 class="panel-title">
+                                        <a href="#refineCuisine">
+                                          Cuisine
+                                          <i class="fa fa-caret-up pull-right"></i>
+                                        </a>
+                                      </h6>
+                                    </div>
+                                    <div id="refineCuisine">
+                                      <div class="panel-body panel-scroll">
+                                         <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox" checked="">
+                                            All
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            American
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Chinese
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Italian
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Korean
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Japanese
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Portuguese
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Thai
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">                                           
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Indian
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            French
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Caribbean
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Greek
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Mexican
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Vietnamese
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Arab
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            Jewish
+                                          </label>
+                                          <label class="checkbox">
+                                            <input type="checkbox" value="" data-toggle="checkbox">
+                                            German
+                                          </label>
+                                      </div>
+                                    </div>
+                                  </div><!-- end panel -->
+                                  
+                                  
+                                  
+                                </div>  
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                    <div class ="container">
+                      <?php
+                        $rest_list = get_restaurant_list();
+                        foreach($rest_list as $rest){
+                          echo "<div class = \"col-md-3 col-md-3\">";
+                          echo "<a href =\"#\" class = \"thumbnail\" >";
+                          echo "<img src =\"blog_post.jpg\" alt = \"...\">";
+                          echo "</a>";
+                          echo "<div class = \"caption\">";
+                          echo "<h2>".$rest['restaurant_name']."</h2>";
+                          echo "<h3> price: $".$rest['restaurant_price']."<br>time: 9:00 - 12:00</h3>";
+                          echo "<p><a href=\"mn-menu-detail.php?menu_id=".$rest['id']."\" class = \"btn btn-primary\" role=\"button\">Menu</a></p>";
+                          echo "</div></div>";
+                        }
+                      ?> 
+                    </div>
+  <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 
-                      <div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name1</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
-                        </div>
-                      
-                     <div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name2</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 
-                        </div><div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name3</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
+	<!--  Plugins -->
+	<script src="js/gsdk-checkbox.js"></script>
+  <script src="js/site.js"></script>
+	<script src="js/gsdk-morphing.js"></script>
+	<script src="js/gsdk-radio.js"></script>
+	<script src="js/gsdk-bootstrapswitch.js"></script>
+	<script src="js/bootstrap-select.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/chartist.min.js"></script>
+  <script src="js/jquery.tagsinput.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-                        </div><div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name4</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
-
-                        </div><div class = " col-md-3 col-md-3">
-                        <a href ="#" class = "thumbnail" >
-                            <img src ="blog_post.jpg" alt = "..."></a>
-                            <div class = "caption">             
-                              <h2> Restaurant Name5</h2>
-                              <h3> price: $$ <br> time: xx -xx </h3>
-                              <p> <a href="#" class = "btn btn-primary" role="button">Menu</a></p>
-                            </div>
-                        </div>
-                </div>
-                 		
-                 	</ul>
+	<script src="js/get-shit-done.js"></script>
 
 
 </html>
