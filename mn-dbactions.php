@@ -69,6 +69,7 @@ function signin_check($dbh, $username, $password, $type){
 
 		if(count($result)> 0 && password_verify($password, $result["password"])){
 			$_SESSION["username"] = $result["username"];
+			$_SESSION["type"] = $type;
 			
 			//for user
 			if($type == "user"){
@@ -91,6 +92,10 @@ function mn_error($type, $message){
 	header("Location: mn-errors.php?type=$type&message=$message");
 	//<script>location.href='errorpage.html'</script>
 	//consider using this javascript code. header has its limitations.
+}
+
+function get_home($type){
+	return "mn-".$type.".php";
 }
 
 function update_restaurant($values){
@@ -215,6 +220,24 @@ function get_menus($owner_id){
 	}catch(PDOException $e){
 		echo $e;
 		return array();
+	}
+}
+
+function get_menu($menu_id){
+	require("mn-db.php");
+
+	try{
+		$sql = "SELECT * FROM ".MENU_TABLE." WHERE id=:menu_id;";
+
+		$query = $dbh->prepare($sql);
+		$query->bindParam(":menu_id", $menu_id);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+
+		return $result;
+	}catch(PDOException $e){
+		echo $e;
+		return array("menu_title"=>"");
 	}
 }
 

@@ -25,11 +25,15 @@
 
 		$upload_success = add_item($menu_id, $values, $imageFILE);
 	}
+
+	if(isset($_GET["redirect_mid"])){
+		header("location:mn-menu-detail.php?menu_id=".$_GET["redirect_mid"]);
+	}
 ?>
 <!doctype html>
 <html lang="en">
 <head>
-	<title>Create Menu</title>
+	<title>Add Item</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -100,6 +104,8 @@
 	  </div>
 	</div>
 
-	<h1><?php if(isset($upload_success)){$status = $upload_success?" SUCCESS":" FAILED"; echo $_POST["item_name"].$status;}?><h1>
+	<h1><?php if(isset($upload_success)){$status = $upload_success?" SUCCESS":" FAILED"; echo $_POST["item_name"].$status;}?></h1>
 	</fieldset>
 	</form>
+</body>
+</html>
