@@ -290,6 +290,29 @@ function get_items($menu_id){
 }
 
 /**
+ * Get Item based on item id
+ */
+function get_item($item_id){
+	require("mn-db.php");
+
+	try{
+		$sql = "SELECT * FROM ".ITEM_TABLE." WHERE id=:item_id";
+
+		$query = $dbh->prepare($sql);
+		$query->bindParam(":item_id", $item_id);
+
+		$query->execute();
+
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+
+		return $result;
+	}catch(PDOException $e){
+		echo $e;
+		return array();
+	}
+}
+
+/**
  * Returns true iff 
  */
 function is_menu_owner($restaurant_id, $menu_id){

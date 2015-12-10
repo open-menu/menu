@@ -122,7 +122,7 @@
              <div class="sidebar-wrapper">
               <div class="logo">
                   <a class="simple-text">
-                      Grid Menu
+                      OPEN MENU
                   </a>
               </div>                       
               <ul class="nav">

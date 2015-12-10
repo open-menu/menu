@@ -79,7 +79,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="../menu">Home</a>
+                      <a class="navbar-brand" href="<?php echo get_home($_SESSION["type"]);?>">Home</a>
                     </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->

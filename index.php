@@ -115,7 +115,7 @@
                  <!-- end navbar -->
              </div>
         <div class="motto">
-            <div>Grid Menu</div>
+            <div>OPEN MENU</div>
         </div>
         <h3 class="motivation">A Menu for Every Restaurant.</h3>
     </div>

@@ -10,11 +10,15 @@
         header("location:mn-signin.php");
     }
 
+    $user;
     if(isset($_SESSION["user"]))
         $user = $_SESSION["user"];
-    else if(isset($_SESSION["restaurant"]))
-        $user = NULL;
 
+    if(!isset($_GET["item_id"])){
+        mn_error("Unknown Dish","We could not find the dish you are looking for.");
+    }
+
+    $item = get_item($_GET["item_id"]);
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,7 +26,7 @@
         <meta charset="utf-8" />
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>Grid Menu</title>
+        <title>Open Menu</title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
         
@@ -49,10 +53,12 @@
                     <a href="mn-user.php">
                         <div class="logo-container">
                             <div class="logo">
-                                <img src="<?php echo $user->userAvatar; ?>" alt="">
+                                <img src="<?php 
+                                            if(isset($user)){echo $user->userAvatar;}else{echo "image/avatars/default.png";} 
+                                        ?>" alt="">
                             </div>
                             <div class="brand">
-                                <?php echo $user->username;?>
+                                <?php if(isset($user)){echo $user->username;}else{echo "";}?>
                             </div>
                         </div>
                     </a>
@@ -92,16 +98,16 @@
                     <div class="row">
                         <div class="col-md-5 hidden-xs">
                             <div class="parallax-image">
-                                <img class="menu" src="image/dish1.jpg" style="top: 40px"/>
+                                <img class="menu" src="<?php echo $item["item_image"];?>" style="top: 40px"/>
                             </div>
                         </div>
                         <div class="col-md-6 col-md-offset-1">
                             <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                                 Item come from database -->
                             <div class="description">
-                                <h2>Dish name</h2>
+                                <h2><?php echo $item["item_name"];?></h2>
                                 <br>
-                                <h4>price: $xx -$xx</h4>
+                                <h4>$<?php echo $item["item_price"];?></h4>
                             </div>
                             </div>
                         </div>
@@ -112,7 +118,7 @@
                 <div class="container text-center">
                     <h4 class="header-text">Description</h4>
                     <p>
-                        What is in the dish: bla bla bla, xxx, yyy, zzz <br> Benefit: what is good for, xxx, yyy, zzz.(找食材的特性) <br>
+                        <?php echo $item["item_detail"];?><br>
                     </p>
                         
                     </div>
