@@ -4,6 +4,10 @@ html,body{
     height: 100%;
 }
 
+.list-image{
+    max-height: 143px;
+}
+
 .login-container{
     position: relative;
     width: 300px;
