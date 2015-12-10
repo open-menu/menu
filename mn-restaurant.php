@@ -133,7 +133,7 @@
                       </a>
                   </li> 
                   <li>
-                      <a href="#">
+                      <a href="#menu_list_modal" data-toggle="modal" data-target="#menu_list_modal">
                           <!--<i class="pe-7s-note2"></i> -->
                           <p>Menu List</p>
                       </a>        
@@ -243,6 +243,33 @@
             </div>
           </fieldset>
         </form>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <!-- Modal for showing list of menus -->
+  <div id="menu_list_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color:white !important;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Menu List</h4>
+        </div>
+        <div class="modal-body">
+          <?php
+            //List of restaurants
+            $menu_list = $restaurant->restaurantMenus;
+            echo "<ul class='list-group'>";
+            foreach($menu_list as $menu){            
+              echo "<li class='list-group-item'><a href='mn-menu-detail.php?menu_id=".$menu["id"]."'>".$menu["menu_title"]."</a></li>";             
+            }
+            echo "</ul>";
+            
+          ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->

@@ -243,6 +243,56 @@ function add_item($menu_id, $values, $imageFILE){
 	}
 }
 
+/**
+ * Get Menu Items in a list
+ */
+function get_items($menu_id){
+	require("mn-db.php");
+
+	try{
+		$sql = "SELECT * FROM ".ITEM_TABLE." WHERE menu_id=:menu_id";
+
+		$query = $dbh->prepare($sql);
+		$query->bindParam(":menu_id", $menu_id);
+
+		$query->execute();
+
+		$result = $query->fetchALL();
+
+		return $result;
+	}catch(PDOException $e){
+		echo $e;
+		return array();
+	}
+}
+
+/**
+ * Returns true iff 
+ */
+function is_menu_owner($restaurant_id, $menu_id){
+	require("mn-db.php");
+
+	try{
+		$sql = "SELECT * FROM ".MENU_TABLE." WHERE id=:menu_id AND owner_id=:restaurant_id;";
+
+		$query = $dbh->prepare($sql);
+		$query->bindParam(":menu_id", $menu_id);
+		$query->bindParam(":restaurant_id", $restaurant_id);
+
+		$query->execute();
+
+		$num_rows = $query->fetchColumn();
+
+		if($num_rows == 0){
+			return false;
+		}else{
+			return true;
+		}
+	}catch(PDOException $e){
+		echo $e;
+		return false;
+	}
+}
 
 /**
  * If you need to hash the filename, change here.

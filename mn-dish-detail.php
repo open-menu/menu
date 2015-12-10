@@ -10,7 +10,11 @@
         header("location:mn-signin.php");
     }
 
-    $user = $_SESSION["user"];
+    if(isset($_SESSION["user"]))
+        $user = $_SESSION["user"];
+    else if(isset($_SESSION["restaurant"]))
+        $user = NULL;
+
 ?>
 <!doctype html>
 <html lang="en">
