@@ -136,6 +136,12 @@
                           <p>Maps</p>
                       </a>        
                   </li>
+                  <li>
+                      <a href="mn-restaurant-init.php">
+                          <!--<i class="pe-7s-map-marker"></i> -->
+                          <p>Account Settings</p>
+                      </a>        
+                  </li>
               </ul> 
         </div>
       </div>
@@ -145,17 +151,17 @@
         <div class="content">
            <div class="author">
                 <a href="#">
-               <img id="restaurant image"class=" col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center" src="image/newbee.png" alt="..." >                       
-                 <h4 class="name text-center col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3"><?php echo $restaurant->restaurantName; ?><br>
+               <img id="restaurant image"class="col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center" src="image/newbee.png" alt="..." >                       
+                 <h4 class="name text-center col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3"><?php echo $restaurant->restaurantName; ?><br>
                     <small><?php echo $restaurant->getAddressString(); ?></small>
                  </h4> 
                </a>
            </div>  
-           <p class="description text-center col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3"> 
+           <p class="description text-center col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3"> 
              <?php echo $restaurant->restaurantDescription; ?>
            </p>
         </div>
-        <div class="text-center col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
+        <div class="text-center col-md-offset-8 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
           <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
           <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
           <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
