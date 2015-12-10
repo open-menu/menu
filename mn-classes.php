@@ -35,6 +35,7 @@ class Restaurant{
 	public $restaurantCuisine;
 	public $restaurantPrice;
 	public $restaurantCity;
+	public $restaurantLogo;
 	public $address_l1;
 	public $address_l2;
 	public $address_l3;
@@ -61,6 +62,8 @@ class Restaurant{
 		$this->address_l1 = $result["restaurant_address_l1"];
 		$this->address_l2 = $result["restaurant_address_l2"];
 		$this->address_l3 = $result["restaurant_address_l3"];
+		
+		$this->restaurantLogo = $result["restaurant_logo"];
 
 		$this->isActive = $result["activated"];
 

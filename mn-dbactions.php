@@ -176,6 +176,29 @@ function set_menu_image($menu_id, $FILES){
 	}
 }
 
+function set_restaurant_logo($restaurant_id, $FILES){
+	require("mn-db.php");
+
+	$path = move_to_upload($FILES);
+
+	if($path != ""){
+		try{
+			$sql = "UPDATE ".REST_TABLE." SET restaurant_logo=:restaurant_logo WHERE id=:restaurant_id;";
+
+			$stmt = $dbh->prepare($sql);
+			$stmt->bindParam(":restaurant_id", $restaurant_id);
+			$stmt->bindParam(":restaurant_logo", $path);
+
+			$stmt->execute();
+
+			return $path;
+		}catch(PDOException $e){
+			echo $e;
+			return "";
+		}
+	}
+}
+
 function get_menus($owner_id){
 	require("mn-db.php");
 
@@ -229,7 +252,7 @@ function move_to_upload($FILES){
 	$path = $dir.basename($FILES['name']);
 
 	if(move_uploaded_file($FILES['tmp_name'], $path))
-		return $path;
+		return get_relative_url($path);
 	else
 		return "";
 }
@@ -253,5 +276,12 @@ function get_restaurant_list(){
 		echo $e;
 		return array();
 	}
+}
+
+/**
+ * Get relative url
+ */
+function get_relative_url($full_url){
+	return str_replace(SITE_ROOT, "", $full_url);
 }
 ?>

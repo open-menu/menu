@@ -25,6 +25,14 @@
 
     $_SESSION["restaurant"]->updateMenus();
   }
+
+  if(isset($_FILES["restaurant_logo"])){
+    $rest_id = $_SESSION["restaurant"]->restaurantID;
+
+    $result = set_restaurant_logo($rest_id, $_FILES["restaurant_logo"]);
+
+    $_SESSION["restaurant"]->restaurantLogo = $result;
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -150,8 +158,8 @@
         </div>
         <div class="content">
            <div class="author">
-                <a href="#">
-               <img id="restaurant image"class="col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center" src="image/newbee.png" alt="..." >                       
+                <a href="#upload_logo_modal" data-toggle="modal" data-target="#upload_logo_modal">
+               <img id="restaurant image"class="col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center" src="<?php echo $_SESSION['restaurant']->restaurantLogo;?>" alt="..." >                       
                  <h4 class="name text-center col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3"><?php echo $restaurant->restaurantName; ?><br>
                     <small><?php echo $restaurant->getAddressString(); ?></small>
                  </h4> 
@@ -202,6 +210,36 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button id="submit" name="submit"class="btn btn-primary">Create</button>
+            </div>
+          </fieldset>
+        </form>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <!-- Modal For Uploading image logo -->
+  <div id="upload_logo_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color:white !important;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Upload Restaurant Logo</h4>
+        </div>
+        <form class="form-horizontal" action="mn-restaurant.php" method="post" enctype="multipart/form-data">
+          <fieldset>
+            <div class="modal-body">                 
+              <!-- Image Upload -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="restaurant_logo">Upload Image</label>  
+                <div class="col-md-4">
+                <input id="restaurant_logo" name="restaurant_logo" type="file">
+                  
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="submit" name="submit"class="btn btn-primary">Upload</button>
             </div>
           </fieldset>
         </form>
