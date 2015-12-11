@@ -93,18 +93,18 @@
 					<div class="row">
 		<!-- 需要菜的图片，名字，价钱 -->
 						<?php
-							$rest_list = get_restaurant_list();
+							$item_list = get_item_list();
 							
-							$new_rest_list = array_slice($rest_list, 0, 4);
+							$new_item_list = array_slice($item_list, 0, 4);
 
-							foreach($new_rest_list as $rest){
+							foreach($new_item_list as $item){
 								echo "<div class='col-md-3'>";
-								echo "<a href =\"mn-dish-detail.php?restaurant_id=".$rest['id']."\" class = \"thumbnail\">";
-								echo '<img class="list-image" src ="'.$rest['restaurant_logo'].'" alt = "..."></a>';
+								echo "<a href =\"mn-dish-detail.php?item_id=".$item['id']."\" class = \"thumbnail\">";
+								echo '<img class="list-image" src ="'.$item['item_image'].'" alt = "..."></a>';
 								echo '<div class="caption" style="margin-top:-1em">';
-								echo '<h5>'.$rest['restaurant_name'].'</h5>';
+								echo '<h5>'.$item['item_name'].'</h5>';
 								echo '<div class = "caption" style="margin-top:-1em">';
-								echo '<h5> price: '.$rest['restaurant_price'].' <br></h5>';
+								echo '<h5> price: '.$item['item_price'].' <br></h5>';
 								echo '</div></div></div>';
 							}
 						?>

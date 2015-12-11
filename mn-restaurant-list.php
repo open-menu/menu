@@ -239,7 +239,7 @@
               $rest_list = get_restaurant_list();
               foreach($rest_list as $rest){
                 echo "<div class = \"col-md-3\">";
-                echo "<a href =\"#\" class = \"thumbnail\" >";
+                echo "<a href =\"#menu_list_modal_".$rest['id']."\" data-target=\"#menu_list_modal_".$rest['id']."\" data-toggle=\"modal\" class = \"thumbnail\" >";
                 echo "<img class=\"list-image\" src =\"".$rest['restaurant_logo']."\" alt = \"...\">";
                 echo "</a>";
                 echo "<div class = \"caption\">";
@@ -252,6 +252,38 @@
           </div> 
         </div>
       </div>
+
+      <?php 
+        foreach($rest_list as $rest){
+          echo '<div id="menu_list_modal_'.$rest['id'].'"" class="modal fade" tabindex="-1" role="dialog">';
+      ?>
+         <div class="modal-dialog">
+            <div class="modal-content" style="background-color:white !important;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Menu List</h4>
+              </div>
+              <div class="modal-body">
+                <?php
+                    //List of restaurants
+                    $menu_list = get_menus($rest['id']);
+                    echo "<ul class='list-group'>";
+                    foreach($menu_list as $menu){            
+                      echo "<li class='list-group-item'><a href='mn-menu-detail.php?menu_id=".$menu["id"]."'>".$menu["menu_title"]."</a></li>";             
+                    }
+                    echo "</ul>";
+                ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      <?php
+        }
+      ?>
+ 
   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 

@@ -375,6 +375,27 @@ function get_restaurant_list(){
 }
 
 /**
+ * Get A List Of Dishes
+ */
+function get_item_list(){
+	try{
+		require("mn-db.php");
+
+		$sql = "SELECT * FROM ".ITEM_TABLE." WHERE 1";
+
+		$query = $dbh->prepare($sql);
+		$query->execute();
+
+		$result = $query->fetchAll();
+
+		return $result;
+	}catch(PDOException $e){
+		echo $e;
+		return array();
+	}
+}
+
+/**
  * Get relative url
  */
 function get_relative_url($full_url){
