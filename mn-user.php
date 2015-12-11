@@ -98,9 +98,9 @@
 							$new_rest_list = array_slice($rest_list, 0, 4);
 
 							foreach($new_rest_list as $rest){
-								echo "<div class='col-md-3 col-md-3'>";
+								echo "<div class='col-md-3'>";
 								echo "<a href =\"mn-dish-detail.php?restaurant_id=".$rest['id']."\" class = \"thumbnail\">";
-								echo '<img src ="'.$rest['restaurant_logo'].'" alt = "..."></a>';
+								echo '<img class="list-image" src ="'.$rest['restaurant_logo'].'" alt = "..."></a>';
 								echo '<div class="caption" style="margin-top:-1em">';
 								echo '<h5>'.$rest['restaurant_name'].'</h5>';
 								echo '<div class = "caption" style="margin-top:-1em">';
@@ -155,17 +155,6 @@
 									<a href="mn-user-favorites.php#" class="fav-list">
 										<div class="house-favo" align="center">
 											<p></p><i class="fa fa-heart"></i><strong>Favorites</strong>
-											<span>
-												<div class="fav-detal-box">
-													<div align="center"><h3>Favoritess</h3></div>
-													<ul>
-														<li></li>
-														<li></li>
-														<li></li>
-														<li></li>
-													</ul>
-												</div>
-											</span>
 											<div class="winleft">
 												<div class="win-line1"></div>
 												<div class="win-line2"></div>
@@ -174,7 +163,7 @@
 									</a>
 								</div>
 								<div class="house-coupon-box">
-									<a href="#" class="coupon-list">
+									<a href="mn-user-coupon.php" class="coupon-list">
 										<div class="house-coupon" align="center">
 											<p></p><i class="fa fa-calendar"></i><strong>Coupon</strong>
 											<div class="winright">
@@ -182,17 +171,6 @@
 												<div class="win-line2"></div>
 											</div>										
 										</div>
-										<span>
-											<div class="coupon-detal-box">
-												<div align="center"><h3>Coupons</h3></div>
-												<ul>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-												</ul>
-											</div>
-										</span>
 									</a>
 								</div>
 								<div id="house-box4"></div>
