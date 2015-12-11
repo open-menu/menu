@@ -218,9 +218,9 @@
   <div class ="container">
     <?php
       foreach($item_list as $item){
-        echo "<div class = \"col-md-3 col-md-3\">";
+        echo "<div class = \"col-md-3\">";
         echo "<a href =\"mn-dish-detail.php?item_id=".$item["id"]."\" class = \"thumbnail\" >";
-        echo "<img src =\"".$item['item_image']."\" alt = \"...\">";
+        echo "<img class='list-image' src =\"".$item['item_image']."\" alt = \"...\">";
         echo "</a>";
         echo "<div class = \"caption\">";
         echo "<h2>".$item['item_name']."</h2>";

@@ -241,6 +241,27 @@ function get_menu($menu_id){
 	}
 }
 
+/**
+ * When a user requests a menu from restaurant. Only 1 menu shall be returned.
+ */
+function user_get_menu($restaurant_id){
+	require("mn-db.php");
+
+	try{
+		$sql = "SELECT * FROM ".MENU_TABLE." WHERE owner_id=:restaurant_id;";
+
+		$query = $dbh->prepare($sql);
+		$query->bindParam(":restaurant_id", $restaurant_id);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+
+		return $result;
+	}catch(PDOException $e){
+		echo $e;
+		return array("id"=>"");
+	}
+}
+
 function add_item($menu_id, $values, $imageFILE){
 	require("mn-db.php");
 
@@ -361,6 +382,27 @@ function get_restaurant_list(){
 		require("mn-db.php");
 
 		$sql = "SELECT id, restaurant_name, restaurant_price, restaurant_logo FROM ".REST_TABLE." WHERE 1";
+
+		$query = $dbh->prepare($sql);
+		$query->execute();
+
+		$result = $query->fetchAll();
+
+		return $result;
+	}catch(PDOException $e){
+		echo $e;
+		return array();
+	}
+}
+
+/**
+ * Get A List Of Dishes
+ */
+function get_item_list(){
+	try{
+		require("mn-db.php");
+
+		$sql = "SELECT * FROM ".ITEM_TABLE." WHERE 1";
 
 		$query = $dbh->prepare($sql);
 		$query->execute();
